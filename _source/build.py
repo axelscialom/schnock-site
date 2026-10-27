@@ -344,7 +344,7 @@ def build_legal():
         s = s.replace('//d.zenchef.com/landing-page/pardot-style.css', '/css/legal.css')
         if p == 'mentions-legales':
             s = s.replace('Amazon Web Services EMEA SARL (AWS Europe), 4033 Citywest Avenue, Cooldown Commons, County Dublin, IRELAND https://aws.amazon.com',
-                          '[Hébergeur à compléter une fois l\'hébergement choisi]')
+                          'GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis - https://github.com')
             s = s.replace('Zenchef - 63 avenue de Villiers 75017 Paris – webmaster{at}zenchef.com', 'LUCCEA (Schnock)')
         write(os.path.join(OUT, p, 'index.html'), s)
 
