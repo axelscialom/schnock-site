@@ -29,7 +29,7 @@ def relativize(s, depth):
     """Root-relative links -> relative, so the site works on any host or sub-path (GitHub Pages preview)."""
     prefix = '../' * depth
     s = re.sub(r'(href|src)="/(?!/)', lambda m: '%s="%s' % (m.group(1), prefix or './'), s)
-    s = re.sub(r"url\('/(?!/)", "url('" + prefix, s)
+    s = re.sub(r"url\((['\"]?)/(?!/)", lambda m: 'url(' + m.group(1) + prefix, s)
     return s
 
 
