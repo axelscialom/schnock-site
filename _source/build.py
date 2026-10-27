@@ -178,6 +178,9 @@ def transform(s):
     s = sub1(r'(?=</body>)', lambda m: read(os.path.join(S, 'src/mobile-bar.html')), s, count=1)
     # lunch formula price confirmed by axel on 2026-10-27 (Zenchef showed 25 €)
     s = s.replace('<span class="menu__price">25,00 EUR</span>', '<span class="menu__price">32,00 EUR</span>')
+    # Horaires 2026-10-27 : samedi 19h-01h, fermé le dimanche
+    s = re.sub(r'(Samedi\s*</h5>\s*<p class="hours">\s*)19h00 - 22h00', r'\g<1>19h00 - 01h00', s)
+    s = re.sub(r'\s*<div class="day-wrap">\s*<h5 class="day">\s*Dimanche\s*</h5>\s*<p class="hours">[^<]*</p>\s*</div>', '', s)
     # Zenchef form plumbing
     s = re.sub(r'\s*<input type="hidden" name="(restaurant_public_id|lang|token)"[^>]*>', '', s)
     # file names shown as photo captions
@@ -215,7 +218,7 @@ ALBUM_ALT = {
 
 HOURS = [('Monday', '12:00', '15:00'), ('Monday', '19:00', '23:59'), ('Tuesday', '12:00', '15:00'), ('Tuesday', '19:00', '23:59'),
          ('Wednesday', '12:00', '15:00'), ('Wednesday', '18:00', '23:59'), ('Thursday', '12:00', '15:00'), ('Thursday', '19:00', '23:59'),
-         ('Friday', '12:00', '15:00'), ('Friday', '19:00', '23:59'), ('Saturday', '19:00', '22:00'), ('Sunday', '12:00', '15:00')]
+         ('Friday', '12:00', '15:00'), ('Friday', '19:00', '23:59'), ('Saturday', '19:00', '01:00')]
 
 RESTAURANT_LD = {
     '@context': 'https://schema.org',
