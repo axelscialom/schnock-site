@@ -26,3 +26,14 @@ function schnockSendForm(form, subject, done) {
 			alert("L'envoi n'a pas fonctionné. Appelez-nous au 01 47 64 86 04.")
 		})
 }
+
+//-- Slow zoom on the hero photo (the photo moves to its own layer so only it scales)
+document.querySelectorAll('.hero-picture').forEach(function (hero) {
+	var bg = hero.style.backgroundImage
+	if (!bg) return
+	var layer = document.createElement('div')
+	layer.className = 'hero-picture__zoom'
+	layer.style.backgroundImage = bg
+	hero.style.backgroundImage = 'none'
+	hero.insertBefore(layer, hero.firstChild)
+})

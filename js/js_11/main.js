@@ -7,7 +7,7 @@ const mainT11 = () => {
 		threshold: ratio,
 	};
 
-	if (window.innerWidth > 768 && window.innerHeight > 768) {
+	if (true) {
 		const handleIntersect = function (entries, observer) {
 			entries.forEach(function (entry) {
 				if (entry.intersectionRatio > ratio) {

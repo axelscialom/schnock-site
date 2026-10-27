@@ -110,6 +110,9 @@ def copy_assets():
     shutil.copy(os.path.join(S, 'src/site.js'), os.path.join(OUT, 'js/site.js'))
     shutil.copy(os.path.join(S, 'src/site.css'), os.path.join(OUT, 'css/site.css'))
     os.remove(os.path.join(OUT, 'js/globals/getRestoIdKonamiCode.js'))
+    # reveal-on-scroll animations on every screen size, not only large desktops
+    mj = os.path.join(OUT, 'js/js_11/main.js')
+    write(mj, read(mj).replace('if (window.innerWidth > 768 && window.innerHeight > 768) {', 'if (true) {'))
 
 
 # ---------- images ----------
@@ -170,6 +173,9 @@ def transform(s):
     s = s.replace('<meta property="og:site_name" content="Zenchef" />', '<meta property="og:site_name" content="Schnock" />')
     s = sub1(r'\t<!-- Contact -->\n\t<li class="nav__item nav__item--contact">', PRIV_NAV, s)
     s = sub1(r'\t\t\t<!-- Contact -->\n\t\t\t<li class="burger-menu__item burger-menu__item--contact">', PRIV_BURGER, s)
+    # brochure logo instead of Zenchef's small one
+    s = s.replace('<img class="logo" src="/images/9695f03cc97badd7b621b3dff5662d18.png"', '<img class="logo" src="/images/logo-schnock-wordmark.png"')
+    s = sub1(r'(?=</body>)', lambda m: read(os.path.join(S, 'src/mobile-bar.html')), s, count=1)
     # lunch formula price confirmed by axel on 2026-10-27 (Zenchef showed 25 €)
     s = s.replace('<span class="menu__price">25,00 EUR</span>', '<span class="menu__price">32,00 EUR</span>')
     # Zenchef form plumbing
@@ -220,7 +226,7 @@ RESTAURANT_LD = {
     'url': SITE,
     'telephone': '+33147648604',
     'image': [SITE + 'images/f575044403b6723af9c8185455a098eb.website.jpg', SITE + 'images/privatisation-schnock-grande-table.jpg'],
-    'logo': SITE + 'images/9695f03cc97badd7b621b3dff5662d18.png',
+    'logo': SITE + 'images/logo-schnock.png',
     'address': {'@type': 'PostalAddress', 'streetAddress': '31 rue Guillaume Tell', 'postalCode': '75017',
                 'addressLocality': 'Paris', 'addressRegion': 'Île-de-France', 'addressCountry': 'FR'},
     'geo': {'@type': 'GeoCoordinates', 'latitude': 48.8848837, 'longitude': 2.2951489},
@@ -269,14 +275,29 @@ def improve_photos(s):
     return re.sub(r'<div class="album album--gallery" id="([^"]+)">.*?(?=<div class="album album--gallery"|</section>)', album, s, flags=re.S)
 
 
+def reviews_html():
+    quotes = json.loads(read(os.path.join(S, 'src/reviews.json')))
+    q = ''
+    if quotes:
+        q = '<div class="reviews__quotes">%s</div>' % ''.join(
+            '<blockquote class="reviews__quote">« %s »<cite>%s</cite></blockquote>' % (r['text'], r['author']) for r in quotes)
+    return read(os.path.join(S, 'src/reviews.html')).replace('{{QUOTES}}', q)
+
+
 def build_pages():
     teaser = read(os.path.join(S, 'src/home-teaser.html'))
+    reviews = reviews_html()
     for out, raw in PAGES.items():
         s = transform(read(os.path.join(DL, raw)))
         s = set_head(s, out)
         s = improve_photos(s)
         if out == '':
             s = sub1(r'(?=\t<!-- Useful infos & opening hours -->)', lambda m: teaser, s, count=1)
+            s = sub1(r'(?=\t\t<!-- Menus -->)', lambda m: reviews, s, count=1)
+            # the logo already says "cuisine • comptoir": drop the small caption above it
+            s = sub1(r'\s*<p class="hero-picture__caption text--center reveal-1">.*?</p>', '', s, count=1)
+            s = sub1(r'<h1 class="hero-picture__title text--center reveal-2">Schnock</h1>',
+                     lambda m: '<h1 class="hero-picture__title hero-logo text--center reveal-2"><img src="/images/logo-schnock-blanc.png" alt="Schnock, cuisine et comptoir" width="954" height="683"></h1>', s, count=1)
         write(os.path.join(OUT, out, 'index.html'), s)
     return transform(read(os.path.join(DL, PAGES['informations-contact'])))
 
@@ -316,6 +337,7 @@ def build_privatisation(contact_html):
     body = body.replace('{{MENU_NAV}}', '\n'.join(
         '<a class="menu-nav__item anchor-trigger" data-anchor="%s" href="#%s">%s</a>' % (m['id'], m['id'], m['title']) for m in menus))
     body = body.replace('{{MENUS}}', '\n'.join(render_menu(m) for m in menus))
+    body = body.replace('\t<!-- FAQ -->', reviews_html() + '\t<!-- FAQ -->', 1)
     body = body.replace('{{FAQ}}', '\n'.join(
         '<details class="faq__item"><summary>%s</summary><p>%s</p></details>' % (q, a) for q, a in faq))
     faq_ld = {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [

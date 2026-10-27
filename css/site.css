@@ -183,3 +183,267 @@
 .current-page-privatisation .page-content-wrap {
 	grid-template-columns: minmax(0, 1fr);
 }
+
+/* ------------------------------------------
+	Brand touches from the Schnock brochure
+------------------------------------------ */
+
+:root {
+	--color_gold: #CC9933;
+}
+
+.divider--color {
+	border-color: var(--color_gold) !important;
+	background-color: var(--color_gold);
+}
+
+.nav .homelink img.logo {
+	max-height: 46px;
+}
+
+.hero-picture__title.hero-logo {
+	line-height: 0;
+}
+
+.hero-logo img {
+	display: inline-block;
+	width: min(360px, 70vw);
+	height: auto;
+	filter: drop-shadow(0 2px 12px rgba(0, 0, 0, .35));
+}
+
+/* Hero: slow zoom */
+.hero-picture {
+	position: relative;
+	overflow: hidden;
+}
+
+.hero-picture__zoom {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	animation: schnock-hero-zoom 18s ease-out both;
+	z-index: 0;
+}
+
+.hero-picture > :not(.hero-picture__zoom) {
+	position: relative;
+	z-index: 1;
+}
+
+@keyframes schnock-hero-zoom {
+	from { transform: scale(1.12); }
+	to { transform: scale(1); }
+}
+
+/* Photos: gentle zoom on hover */
+.album__link {
+	overflow: hidden;
+}
+
+.album__photo,
+.about__picture .img-ratio-1_1 {
+	transition: transform .8s ease;
+}
+
+.album__link:hover .album__photo {
+	transform: scale(1.05);
+}
+
+/* Gold flowers watermark on the about sections */
+.s--about {
+	position: relative;
+}
+
+.s--about::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: -40px;
+	width: 220px;
+	height: 162px;
+	background: url('../images/fleurs-or.png') no-repeat center / contain;
+	opacity: .18;
+	pointer-events: none;
+}
+
+.s--privatisation-teaser::after {
+	right: auto;
+	left: 0;
+}
+
+/* Reviews */
+.reviews {
+	max-width: 40rem;
+	margin: 0 auto;
+}
+
+.reviews__flowers {
+	width: 120px;
+	height: auto;
+	margin-bottom: var(--marge-sm);
+}
+
+.reviews__score {
+	margin: 0;
+	font-family: var(--font_title);
+	color: var(--color_primary);
+	line-height: 1;
+}
+
+.reviews__note {
+	font-size: 4rem;
+}
+
+.reviews__max {
+	font-size: 1.5rem;
+	color: var(--color_grey);
+}
+
+.reviews__stars {
+	margin: var(--marge-xs) 0 0;
+	font-size: 1.25rem;
+	letter-spacing: .2em;
+	color: var(--color_gold);
+}
+
+.reviews__count {
+	margin: var(--marge-xs) 0 var(--marge-md);
+	font-size: .8125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: .08em;
+	color: var(--color_grey);
+}
+
+.reviews .buttons-wrap {
+	justify-content: center;
+}
+
+.reviews__quotes {
+	display: grid;
+	gap: var(--marge-md);
+	margin: var(--marge-lg) 0;
+}
+
+.reviews__quote {
+	margin: 0;
+	font-family: var(--font_title);
+	font-size: 1.125rem;
+	line-height: 1.6rem;
+}
+
+.reviews__quote cite {
+	display: block;
+	margin-top: 6px;
+	font-family: var(--font_text);
+	font-size: .8125rem;
+	font-style: normal;
+	color: var(--color_grey);
+}
+
+.reviews__press {
+	margin-top: var(--marge-md);
+	font-size: .8125rem;
+	color: var(--color_light-black);
+}
+
+/* Privatisation highlighted in the menu */
+@media (min-width: 769px) {
+	.nav__item--privatisation > a {
+		padding: 8px 14px !important;
+		border: 1px solid var(--color_gold);
+		color: var(--color_gold) !important;
+		transition: all .3s ease;
+	}
+
+	.nav__item--privatisation > a:hover,
+	.current-page-privatisation .nav__item--privatisation > a {
+		background-color: var(--color_gold);
+		color: #FFF !important;
+	}
+}
+
+.btn--privatisation {
+	background-color: var(--color_gold) !important;
+	border-color: var(--color_gold) !important;
+	color: #FFF !important;
+}
+
+/* Mobile action bar */
+.mobile-bar {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.mobile-bar {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+		display: grid;
+		grid-template-columns: 1fr 1fr 56px;
+		background-color: #FFF;
+		box-shadow: 0 -2px 16px rgba(44, 48, 55, .12);
+		padding-bottom: env(safe-area-inset-bottom);
+	}
+
+	.mobile-bar__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 56px;
+		font-size: .8125rem;
+		font-weight: 700;
+		letter-spacing: .08em;
+		text-transform: uppercase;
+		cursor: pointer;
+		color: #FFF !important;
+	}
+
+	.mobile-bar__item--booking {
+		background-color: var(--color_primary);
+	}
+
+	.mobile-bar__item--privatisation {
+		background-color: var(--color_gold);
+	}
+
+	.mobile-bar__item--phone {
+		color: var(--color_primary) !important;
+		font-size: 1.125rem;
+	}
+
+	body {
+		padding-bottom: 56px;
+	}
+
+	/* The bar replaces Zenchef's floating button; the booking window itself still opens */
+	iframe[class*="zc-width-numeral"] {
+		display: none !important;
+	}
+
+	#tarteaucitronIcon {
+		bottom: 64px !important;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero-picture__zoom {
+		animation: none;
+	}
+
+	.album__photo,
+	.space .img-ratio-3_2 {
+		transition: none;
+	}
+}
+
+.hero-picture__zoom::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, rgba(12, 16, 24, .15), rgba(12, 16, 24, .35));
+}
