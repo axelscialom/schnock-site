@@ -1,0 +1,55 @@
+[
+  {
+    "id": "menu-dejeuner",
+    "title": "Menu déjeuner",
+    "descr": "Entrée, plat, dessert au choix. Eau minérale d'Abatilles (1 bouteille pour 2) et boisson chaude comprises.",
+    "prices": ["Entrée + plat ou plat + dessert : 32 € TTC", "Entrée + plat + dessert : 38 € TTC"],
+    "categories": [
+      {"title": "Entrées", "dishes": ["Velouté du moment", "Poireau vinaigrette au sésame torréfié, pousses de moutarde"]},
+      {"title": "Plats", "dishes": ["Bavette d'Aubrac, pomme purée, condiment olive noire", "Filet de maquereau de ligne, fumet à la baie de Séchuan, céleri rôti"]},
+      {"title": "Desserts", "dishes": ["Riz au lait au caramel beurre salé", "Crémeux vanille au lait d'amande, praliné noisettes du Piémont & tuile café"]}
+    ]
+  },
+  {
+    "id": "menu-diner",
+    "title": "Menu dîner",
+    "descr": "Entrée, plat, dessert au choix. Eau minérale d'Abatilles (1 bouteille pour 2) et boissons chaudes comprises.",
+    "prices": ["55 € TTC"],
+    "categories": [
+      {"title": "Entrées", "dishes": ["Terrine du Schnock et ses condiments", "Fricassée de champignons frais, jaune d'œuf confit", "Truite des Pyrénées, caviar de betteraves et citron noir d'Iran"]},
+      {"title": "Plats", "dishes": ["Joue de bœuf braisée, jus réduit, purée de pommes de terre", "Merlu de ligne cuit sur la peau, hollandaise à la badiane, poireaux crayons brûlés et tartare d'algues", "Petit épeautre et potimarron rôti façon risotto, châtaignes et noisettes torréfiées du Piémont"]},
+      {"title": "Desserts", "dishes": ["Profiteroles, sauce chocolat", "Cheesecake aux fruits de la passion"]}
+    ]
+  },
+  {
+    "id": "menu-diner-prestige",
+    "title": "Menu dîner prestige",
+    "descr": "Entrée, plat, dessert au choix. Eau minérale d'Abatilles (1 bouteille pour 2) et boissons chaudes comprises.",
+    "prices": ["80 € TTC"],
+    "categories": [
+      {"title": "Entrées", "dishes": ["Raviole de champignons, bouillon miso, herbes fraîches", "Carpaccio de Saint-Jacques, baies roses et combava", "Œuf parfait au foie gras"]},
+      {"title": "Plats", "dishes": ["Volaille fermière rôtie aux morilles, sauce au vin jaune, pomme Darphin", "Daurade royale, sauce vierge, fenouil braisé", "Vol-au-vent de légumes de saison, huile de figues"]},
+      {"title": "Desserts", "dishes": ["Pavlova aux fruits exotiques", "Ganache au chocolat 80 % Xoco, piment d'Espelette, fruit de la passion"]}
+    ]
+  },
+  {
+    "id": "menu-after-work",
+    "title": "After-work",
+    "descr": "Apéritif convivial autour du comptoir, de 18h à 20h.",
+    "prices": ["25 € TTC par personne"],
+    "categories": [
+      {"title": "Sur le pouce", "dishes": ["Huîtres de Normandie", "Tarama au zaatar, huile d'olive de Kalamata, crackers aux graines", "Anchois de Cantabrie, en noir et blanc, radis rouge", "Terrine Tout Veau, ris de veau, sauge & pleurotes, fenouil en pickles", "Jambon de Teruel DOP 24 mois", "La spéciale pomme allumette et condiments", "Fromages affinés, chutney"]}
+    ],
+    "note": "Vins de dégustation & découverte accompagnés d'un vigneron : prix sur demande."
+  },
+  {
+    "id": "menu-boissons",
+    "title": "Boissons",
+    "descr": "Notre service de sommellerie vous propose une sélection de bouteilles en harmonie avec le menu.",
+    "prices": [],
+    "categories": [
+      {"title": "Accueil", "dishes": [["Cocktail ou coupe de Champagne", "14 € TTC"]]},
+      {"title": "Accord mets & vins", "dishes": [["Bouteille classique (1 bouteille pour 3)", "17 € TTC / pers."], ["Bouteille prestige (1 bouteille pour 3)", "30 € TTC / pers."]]}
+    ]
+  }
+]

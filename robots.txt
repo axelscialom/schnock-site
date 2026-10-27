@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.schnock-restaurant.fr/sitemap.xml

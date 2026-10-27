@@ -1,0 +1,185 @@
+/* Additions to the original template: Privatisation page and quote form */
+
+.current-page-privatisation .nav__item--privatisation > a {
+	color: var(--color_primary);
+}
+
+.s--contact-form select,
+.s--contact-form input[type=date] {
+	width: 100%;
+	min-height: 40px;
+	padding: 10px;
+	border: none;
+	background-color: #FFF;
+	font-family: var(--font_text);
+	font-size: .875rem;
+	color: inherit;
+	outline: none;
+}
+
+.form-label {
+	display: block;
+	margin-bottom: 5px;
+	font-size: .75rem;
+	font-weight: 700;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	color: var(--color_grey);
+}
+
+.s--privatisation-photos .album__title {
+	text-align: center;
+}
+
+.s--spaces > h2,
+.s--faq > h2,
+.s--privatisation-menus > h2 {
+	margin-bottom: var(--marge-md);
+}
+
+.s--spaces .divider--big,
+.s--faq .divider--big {
+	margin: 0 auto var(--marge-lg);
+}
+
+.space {
+	margin: 0;
+}
+
+.space .img-ratio-3_2 {
+	transition: transform .6s ease;
+}
+
+.space:hover .img-ratio-3_2 {
+	transform: scale(1.02);
+}
+
+.space figcaption {
+	padding-top: var(--marge-sm);
+}
+
+.space__title {
+	margin-bottom: 4px;
+}
+
+.space__capacity,
+.spaces__total {
+	margin: 0;
+	color: var(--color_light-black);
+}
+
+.spaces__total {
+	margin-top: var(--marge-lg);
+	text-transform: uppercase;
+	letter-spacing: .08em;
+	font-size: .8125rem;
+}
+
+.spaces__total strong {
+	color: var(--color_primary);
+}
+
+.opening-hours .day a {
+	color: inherit;
+}
+
+.s--privatisation-menus {
+	padding: var(--marge-xl) 0 0;
+}
+
+.s--privatisation-menus .menu__note {
+	margin: var(--marge-md) auto 0;
+	padding: 0 var(--marge-md);
+	color: var(--color_light-black);
+	font-size: .8125rem;
+}
+
+.menu__prices {
+	margin: var(--marge-xs) 0 0;
+}
+
+.menu__prices .menu__price {
+	display: block;
+}
+
+.faq__item {
+	border-bottom: 1px solid var(--color_light-grey);
+}
+
+.faq__item summary {
+	position: relative;
+	padding: var(--marge-md) var(--marge-lg) var(--marge-md) 0;
+	font-family: var(--font_title);
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+	list-style: none;
+	cursor: pointer;
+}
+
+.faq__item summary::-webkit-details-marker {
+	display: none;
+}
+
+.faq__item summary::after {
+	content: '+';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: var(--font_text);
+	font-size: 1.5rem;
+	color: var(--color_primary);
+	transition: transform .3s ease;
+}
+
+.faq__item[open] summary::after {
+	transform: translateY(-50%) rotate(45deg);
+}
+
+.faq__item p {
+	margin: 0 0 var(--marge-md);
+	color: var(--color_light-black);
+}
+
+.devis__phone {
+	margin-top: var(--marge-md);
+}
+
+/* Home: privatisation teaser */
+.s--privatisation-teaser .about__text h2 {
+	margin-bottom: var(--marge-sm);
+}
+
+.s--privatisation-teaser .teaser__facts {
+	margin: var(--marge-sm) 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.s--privatisation-teaser .teaser__facts li {
+	padding: 6px 0;
+	border-bottom: 1px solid var(--color_light-grey);
+}
+
+.s--privatisation-teaser .teaser__facts span {
+	float: right;
+	color: var(--color_light-black);
+}
+
+@media (min-width: 769px) {
+	.s--privatisation-teaser .about__picture {
+		order: 2;
+	}
+}
+
+.footer__btns .btn--privatisation {
+	margin-top: 0;
+}
+
+.contact-form-wrap #devis-form {
+	margin-top: var(--marge-lg);
+}
+
+.current-page-privatisation .page-content-wrap {
+	grid-template-columns: minmax(0, 1fr);
+}

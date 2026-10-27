@@ -1,0 +1,214 @@
+/**
+ * Accessibility Styles for EAA/BFSG Compliance
+ * WCAG 2.1 Level AA
+ *
+ * These styles are backward compatible and do not change visual appearance
+ * except for keyboard focus indicators and skip links.
+ */
+
+/* ==========================================================================
+   Screen Reader Only Content
+   ========================================================================== */
+
+/**
+ * Hide content visually but keep it accessible to screen readers
+ * Used for skip links, form labels, and other assistive content
+ */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/**
+ * Allow the element to be focusable when navigated to via keyboard
+ * Used for skip links that become visible on focus
+ */
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+    position: fixed !important;
+    top: 10px !important;
+    left: 10px !important;
+    z-index: 100000 !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+    background-color: #fff !important;
+    color: #333 !important;
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    border: 2px solid #333 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ==========================================================================
+   Focus Indicators (WCAG 2.4.7)
+   ========================================================================== */
+
+/**
+ * Enhanced focus styles for keyboard navigation
+ * Uses :focus-visible to only show on keyboard focus, not mouse clicks
+ */
+
+/* Default focus outline for all focusable elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible,
+[role="menuitem"]:focus-visible {
+    outline: 2px solid currentColor !important;
+    outline-offset: 2px !important;
+}
+
+/* High contrast focus for elements where currentColor might not be visible */
+.burger-button:focus-visible,
+.nav__item:focus-visible a,
+.burger-menu__item:focus-visible a {
+    outline: 2px solid #005fcc !important;
+    outline-offset: 2px !important;
+}
+
+/* Fallback for browsers that don't support :focus-visible */
+@supports not selector(:focus-visible) {
+    a:focus,
+    button:focus,
+    input:focus,
+    select:focus,
+    textarea:focus,
+    [tabindex]:focus,
+    [role="button"]:focus {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}
+
+/* ==========================================================================
+   Skip Link Styles
+   ========================================================================== */
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100001;
+    background-color: #fff;
+    color: #333;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #333;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 10px;
+    outline: none;
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+/**
+ * Respect user preference for reduced motion (WCAG 2.3.3)
+ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .skip-link {
+        transition: none;
+    }
+}
+
+/* ==========================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+
+@media (forced-colors: active) {
+    .skip-link:focus,
+    a:focus-visible,
+    button:focus-visible,
+    [tabindex]:focus-visible {
+        outline: 3px solid CanvasText !important;
+    }
+}
+
+/* ==========================================================================
+   Form Error Styles (WCAG 3.3.1, 3.3.3)
+   ========================================================================== */
+
+/**
+ * Form field error messages
+ * These are linked to inputs via aria-describedby
+ */
+.form-field-error {
+    display: block;
+    color: #d32f2f;
+    font-size: 0.875em;
+    margin-top: 4px;
+    min-height: 1.2em;
+}
+
+.form-field-error:empty {
+    display: none;
+}
+
+/**
+ * Error summary for screen readers
+ * Hidden visually but announced by screen readers
+ */
+.form-error-summary {
+    /* Uses .sr-only styles, additional styling for when shown visually */
+}
+
+.form-error-summary:not(.sr-only) {
+    background-color: #ffebee;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 16px;
+    color: #d32f2f;
+}
+
+/**
+ * Invalid input styling
+ */
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+    border-color: #d32f2f !important;
+}
+
+input[aria-invalid="true"]:focus,
+textarea[aria-invalid="true"]:focus,
+select[aria-invalid="true"]:focus {
+    outline-color: #d32f2f !important;
+    box-shadow: 0 0 0 1px #d32f2f;
+}
