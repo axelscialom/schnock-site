@@ -181,6 +181,8 @@ def transform(s):
     # Horaires 2026-10-27 : samedi 19h-01h, fermé le dimanche
     s = re.sub(r'(Samedi\s*</h5>\s*<p class="hours">\s*)19h00 - 22h00', r'\g<1>19h00 - 01h00', s)
     s = re.sub(r'\s*<div class="day-wrap">\s*<h5 class="day">\s*Dimanche\s*</h5>\s*<p class="hours">[^<]*</p>\s*</div>', '', s)
+    s = re.sub(r'<span>Lun</span> - <span>Mar</span>(\s*</h5>.*?</div>).*?<span>Jeu</span> - <span>Ven</span>.*?</div>',
+               lambda m: '<span>Lun</span> - <span>Ven</span>' + m.group(1).replace('19h00 - 00h00', '18h00 - 00h00'), s, count=1, flags=re.S)
     # Zenchef form plumbing
     s = re.sub(r'\s*<input type="hidden" name="(restaurant_public_id|lang|token)"[^>]*>', '', s)
     # file names shown as photo captions
@@ -216,9 +218,9 @@ ALBUM_ALT = {
     'nos-plats': 'Plat de saison du restaurant Schnock',
 }
 
-HOURS = [('Monday', '12:00', '15:00'), ('Monday', '19:00', '23:59'), ('Tuesday', '12:00', '15:00'), ('Tuesday', '19:00', '23:59'),
-         ('Wednesday', '12:00', '15:00'), ('Wednesday', '18:00', '23:59'), ('Thursday', '12:00', '15:00'), ('Thursday', '19:00', '23:59'),
-         ('Friday', '12:00', '15:00'), ('Friday', '19:00', '23:59'), ('Saturday', '19:00', '01:00')]
+HOURS = [('Monday', '12:00', '15:00'), ('Monday', '18:00', '23:59'), ('Tuesday', '12:00', '15:00'), ('Tuesday', '18:00', '23:59'),
+         ('Wednesday', '12:00', '15:00'), ('Wednesday', '18:00', '23:59'), ('Thursday', '12:00', '15:00'), ('Thursday', '18:00', '23:59'),
+         ('Friday', '12:00', '15:00'), ('Friday', '18:00', '23:59'), ('Saturday', '19:00', '01:00')]
 
 RESTAURANT_LD = {
     '@context': 'https://schema.org',
