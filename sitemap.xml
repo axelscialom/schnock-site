@@ -1,8 +1,303 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.schnock-restaurant.fr/</loc></url>
-  <url><loc>https://www.schnock-restaurant.fr/menus-carte/</loc></url>
-  <url><loc>https://www.schnock-restaurant.fr/photos/</loc></url>
-  <url><loc>https://www.schnock-restaurant.fr/privatisation/</loc></url>
-  <url><loc>https://www.schnock-restaurant.fr/informations-contact/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.schnock-restaurant.fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/es/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/it/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/menus-carte/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/en/menus-carte/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/es/menus-carte/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/it/menus-carte/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/zh/menus-carte/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/ja/menus-carte/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/menus-carte/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/menus-carte/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/photos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/photos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/photos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/photos/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/photos/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/photos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/photos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/photos/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/en/photos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/photos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/photos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/photos/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/photos/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/photos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/photos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/photos/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/es/photos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/photos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/photos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/photos/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/photos/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/photos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/photos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/photos/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/it/photos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/photos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/photos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/photos/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/photos/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/photos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/photos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/photos/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/zh/photos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/photos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/photos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/photos/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/photos/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/photos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/photos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/photos/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/ja/photos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/photos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/photos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/photos/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/photos/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/photos/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/photos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/photos/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/privatisation/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/privatisation/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/en/privatisation/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/privatisation/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/es/privatisation/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/privatisation/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/it/privatisation/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/privatisation/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/zh/privatisation/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/privatisation/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/ja/privatisation/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/privatisation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/privatisation/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/informations-contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/en/informations-contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/es/informations-contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/it/informations-contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/zh/informations-contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+  </url>
+  <url>
+    <loc>https://www.schnock-restaurant.fr/ja/informations-contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.schnock-restaurant.fr/en/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.schnock-restaurant.fr/es/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.schnock-restaurant.fr/it/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.schnock-restaurant.fr/zh/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.schnock-restaurant.fr/ja/informations-contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/informations-contact/"/>
+  </url>
 </urlset>
