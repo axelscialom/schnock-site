@@ -268,6 +268,8 @@ def set_head(s, page):
     s = sub1(r'<meta property="og:url" content="[^"]*" />', lambda m: '<meta property="og:url" content="%s" />' % url, s, count=1)
     s = s.replace('<meta property="og:image" content="/images/', '<meta property="og:image" content="%simages/' % SITE)
     s = s.replace('<link rel="shortcut icon" href="/images/', '<link rel="icon" href="/images/')
+    s = s.replace('<link rel="icon" href="/images/9695f03cc97badd7b621b3dff5662d18.thumb.png" />',
+                  '<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png" />\n<link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png" />\n<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />')
     s = sub1(r'<script id="restaurantJsonLd" type="application/ld\+json">.*?</script>', lambda m: ld_script(RESTAURANT_LD, 'restaurantJsonLd'), s, count=1)
     return s
 
@@ -377,6 +379,7 @@ def build_legal():
 
 
 def extras():
+    shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src', 'favicon.ico'), os.path.join(OUT, 'favicon.ico')) if 'OUT' in globals() else None
     write(os.path.join(OUT, 'CNAME'), 'www.schnock-restaurant.fr\n')
     write(os.path.join(OUT, 'robots.txt'), 'User-agent: *\nAllow: /\nSitemap: https://www.schnock-restaurant.fr/sitemap.xml\n')
     urls = ['', 'menus-carte/', 'photos/', 'privatisation/', 'informations-contact/']
