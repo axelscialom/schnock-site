@@ -517,3 +517,109 @@
 	padding: 0 10px;
 	border-radius: 20px;
 }
+
+/* Retours du 13 novembre : devis en haut de page, dans un bloc de couleur */
+.s--devis {
+	padding: var(--marge-lg) 0;
+	background-color: #2B3A44;
+	color: #FFF;
+}
+
+.s--devis h2,
+.s--devis p,
+.s--devis .step2,
+.s--devis .input--full a {
+	color: #FFF;
+}
+
+.s--devis .divider--color {
+	border-color: var(--color_gold);
+	background-color: var(--color_gold);
+}
+
+.s--devis .form-label {
+	color: rgba(255, 255, 255, .75);
+}
+
+.s--devis input:not([type=submit]),
+.s--devis textarea,
+.s--devis select {
+	background-color: #FFF;
+	color: #2B3A44;
+}
+
+.s--devis input[type=submit] {
+	background-color: var(--color_gold);
+	border-color: var(--color_gold);
+	color: #FFF;
+}
+
+.s--devis input[type=submit]:hover,
+.s--devis input[type=submit]:focus {
+	background-color: #FFF;
+	border-color: #FFF;
+	color: #2B3A44;
+}
+
+.s--devis label.error,
+.s--devis .error:not(input):not(textarea):not(select) {
+	color: #F2C27B;
+}
+
+.s--devis .devis__phone a {
+	color: var(--color_gold);
+}
+
+/* Salles : Verrière (photo à venir), Beaulieu + Verrière en cocktail, salle comptoir en pleine largeur */
+.space__placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #2B3A44;
+}
+
+.space__placeholder img {
+	width: 40%;
+	height: auto;
+}
+
+.spaces__combo {
+	grid-column: 1 / -1;
+	margin: calc(var(--marge-sm) * -1) 0 0;
+	font-size: .8125rem;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	color: var(--color_primary);
+}
+
+@media (min-width: 769px) {
+	.space--wide {
+		grid-column: 1 / -1;
+	}
+
+	.space--wide .img-ratio-3_2 {
+		padding-top: 33%;
+	}
+}
+
+/* Formule déjeuner et à emporter */
+.menu__formules {
+	margin: var(--marge-sm) 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.menu__formules li {
+	margin: 6px 0;
+	font-weight: 700;
+	color: var(--color_primary);
+}
+
+.home-formule {
+	max-width: 32rem;
+	margin: 0 auto;
+}
+
+.menu-nav__item--emporter {
+	color: var(--color_gold);
+}

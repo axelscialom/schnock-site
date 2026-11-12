@@ -11,10 +11,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Private dining & events in Paris 17th | Schnock, rooms for 10 to 100 guests</title>
+	<title>Private dining Paris 17th | Schnock, rooms for 10 to 80 guests</title>
 
 	<!-- Includes -->
-	<meta name="description" content="Book Schnock privately in Paris 17th (Pereire): rooms for 10 to 35 guests, the whole restaurant for up to 60 seated or 100 standing. Group menus from €32, after-work drinks, wine pairings. Quote within 24 hours." />
+	<meta name="description" content="Book Schnock privately in Paris 17th (Pereire): rooms for 10 to 35 guests, the whole restaurant for up to 60 seated or 80 standing. Group menus from €32, after-work, food & wine pairings. Quote within 24 hours." />
 
 
 
@@ -28,7 +28,7 @@
 <link rel="alternate" hreflang="x-default" href="https://www.schnock-restaurant.fr/privatisation/" />
 
 <!-- Facebook Like and Google -->
-<meta property="og:title" content="Private dining & events in Paris 17th | Schnock, rooms for 10 to 100 guests" />
+<meta property="og:title" content="Private dining Paris 17th | Schnock, rooms for 10 to 80 guests" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:locale:alternate" content="fr_FR" />
@@ -42,7 +42,7 @@
 <meta property="fb:admins" content="685299127" />
 <meta property="place:location:latitude" content="48.8848837" />
 <meta property="place:location:longitude" content="2.2951489" />
-<meta property="og:description" content="Book Schnock privately in Paris 17th (Pereire): rooms for 10 to 35 guests, the whole restaurant for up to 60 seated or 100 standing. Group menus from €32, after-work drinks, wine pairings. Quote within 24 hours." />
+<meta property="og:description" content="Book Schnock privately in Paris 17th (Pereire): rooms for 10 to 35 guests, the whole restaurant for up to 60 seated or 80 standing. Group menus from €32, after-work, food & wine pairings. Quote within 24 hours." />
 
 
 
@@ -115,7 +115,7 @@
    "name": "What is the minimum group size for a private event at Schnock?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "From 10 guests at the counter table. The Salon Cheminée seats 24 (30 standing), the Salle Beaulieu seats 25 (30 standing) and the Salle comptoir holds 35 standing. The whole restaurant can be booked for up to 60 seated or 100 standing."
+    "text": "From 10 guests. The Salle Beaulieu seats 20, the Salle Verrière 12 (25 guests for a cocktail reception when the two rooms are combined), the Salon Cheminée 24 seated (30 standing), the counter table 8 seated and the Salle comptoir 35 standing. The whole restaurant can be booked for up to 60 seated or 80 standing."
    }
   },
   {
@@ -403,9 +403,89 @@
 				<span class="restaurant-name">Your events</span>
 			</h2>
 			<p>A short walk from Place Pereire, Schnock brings elegance to the art of dining and sharing. A loft-style setting with exposed stone, intimate rooms or generous tables as you prefer, in an atmosphere that is both raw and refined.<br />
-Business lunch, team dinner, end-of-year party, birthday or after-work drinks: we offer a private room from 10 guests, and the whole restaurant for up to 60 seated or 100 standing.</p>
+Business lunch, team dinner, end-of-year party, birthday or after-work: we offer a private room from 10 guests, and the whole restaurant for up to 60 seated or 80 standing.</p>
 			<div class="buttons-wrap">
 				<a href="#devis" class="btn btn--light">Request a quote</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quote form -->
+	<section class="s--contact-form s--devis reveal" id="devis">
+		<div class="reveal-1">
+			<div class="contact-form-wrap page-content page-content--xl">
+				<h2 class="text--center reveal-2">Request a quote</h2>
+				<hr class="divider--big divider--color reveal-3">
+				<p class="text--center reveal-4">Tell us about your event: <br />
+we will reply within one working day with a proposal.</p>
+				<div class="reveal-5">
+					<form name="devis-form" class="form" id="devis-form" action="#" novalidate="novalidate">
+	<input type="hidden" name="langue" value="anglais">
+	<div class="input--small">
+		<input type="text" name="firstname" id="d-firstname" placeholder="First name *" aria-label="First name" autocomplete="given-name" required="required" aria-required="true">
+	</div>
+
+	<div class="input--small">
+		<input type="text" name="lastname" id="d-lastname" placeholder="Last name *" aria-label="Last name" autocomplete="family-name" required="required" aria-required="true">
+	</div>
+
+	<div class="input--small">
+		<input type="email" name="email" id="d-email" placeholder="Your email address *" aria-label="Your email address" autocomplete="email" required="required" aria-required="true" data-msg-email="Please enter a valid email address">
+	</div>
+
+	<div class="input--small">
+		<input type="tel" name="phone" id="d-phone" placeholder="Phone *" aria-label="Phone" autocomplete="tel" required="required" aria-required="true">
+	</div>
+
+	<div class="input--full">
+		<input type="text" name="company" id="d-company" placeholder="Company" aria-label="Company" autocomplete="organization">
+	</div>
+
+	<div class="input--small">
+		<label class="form-label" for="d-date">Preferred date *</label>
+		<input type="date" name="date" id="d-date" required="required" aria-required="true">
+	</div>
+
+	<div class="input--small">
+		<label class="form-label" for="d-guests">Number of guests *</label>
+		<input type="number" name="guests" id="d-guests" min="10" max="80" placeholder="25" required="required" aria-required="true" data-msg-min="Private events from 10 guests">
+	</div>
+
+	<div class="input--small">
+		<label class="form-label" for="d-moment">Time of day</label>
+		<select name="moment" id="d-moment">
+			<option value="Déjeuner">Lunch</option>
+			<option value="Dîner" selected>Dinner</option>
+			<option value="After-work">After-work</option>
+			<option value="Je ne sais pas encore">Not sure yet</option>
+		</select>
+	</div>
+
+	<div class="input--small">
+		<label class="form-label" for="d-type">Event</label>
+		<select name="event" id="d-type">
+			<option value="Fête de fin d'année">End-of-year party</option>
+			<option value="Dîner d'entreprise">Company dinner</option>
+			<option value="Déjeuner d'affaires / séminaire">Business lunch / seminar</option>
+			<option value="Anniversaire">Birthday</option>
+			<option value="Pot de départ">Leaving party</option>
+			<option value="Autre">Other</option>
+		</select>
+	</div>
+
+	<div class="input--full">
+		<textarea name="message" id="d-message" placeholder="Your event (preferred room, menu, Champagne welcome, dietary needs…)" aria-label="Your event" rows="6"></textarea>
+	</div>
+        <div class="input--full" style="font-size:10px !important;">
+        Under article L.223-2 of the French Consumer Code, consumers may register on the Bloctel list to opt out of telemarketing calls: <a href="https://www.bloctel.gouv.fr" target="_blank" rel="noopener noreferrer">bloctel.gouv.fr</a>. For more information on how we process your data, see our <a href="../../politique-de-confidentialite/" target="_blank">privacy policy (in French)</a>.    </div>
+
+	<input class="btn btn--std input--full" type="submit" id="send-devis" value="Send my request">
+
+	<div class="step2 hidden">
+		<strong>Thank you! </strong>We have received your request and will reply within one working day with a proposal.</div>
+</form>
+				<p class="text--center text--sm devis__phone">Prefer to talk it through? Call us on <a href="tel:+33147648604">01 47 64 86 04</a>.</p>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -416,35 +496,43 @@ Business lunch, team dinner, end-of-year party, birthday or after-work drinks: w
 		<hr class="divider--big divider--color reveal-1">
 		<div class="spaces grid grid-2-col grid-gap-md reveal-2">
 			<figure class="space">
-				<div class="img-ratio-3_2" role="img" aria-label="Salon Cheminée, with panoramic wallpaper" style="background-image: url('../../images/privatisation-salon-cheminee.jpg');"></div>
-				<figcaption>
-					<h3 class="space__title">Salon Cheminée (fireplace room)</h3>
-					<p class="space__capacity">24 seated <span class="separator-cercle">•</span> 30 standing</p>
-				</figcaption>
-			</figure>
+			<div class="img-ratio-3_2" role="img" aria-label="Salle Beaulieu, panoramic wallpaper" style="background-image: url('../../images/privatisation-salon-cheminee.jpg');"></div>
+			<figcaption>
+				<h3 class="space__title">Salle Beaulieu</h3>
+				<p class="space__capacity">20 seated</p>
+			</figcaption>
+		</figure>
+			<figure class="space space--no-photo">
+			<div class="img-ratio-3_2 space__placeholder" aria-hidden="true"><img src="../../images/fleurs-or.png" alt="" loading="lazy"></div>
+			<figcaption>
+				<h3 class="space__title">Salle Verrière</h3>
+				<p class="space__capacity">12 seated</p>
+			</figcaption>
+		</figure>
+			<p class="spaces__combo text--center">Salle Beaulieu and Salle Verrière combined <span class="separator-cercle">•</span> 25 guests for a cocktail reception</p>
 			<figure class="space">
-				<div class="img-ratio-3_2" role="img" aria-label="Salle Beaulieu, brick wall and banquette" style="background-image: url('../../images/privatisation-salle-beaulieu.jpg');"></div>
-				<figcaption>
-					<h3 class="space__title">Salle Beaulieu</h3>
-					<p class="space__capacity">25 seated <span class="separator-cercle">•</span> 30 standing</p>
-				</figcaption>
-			</figure>
+			<div class="img-ratio-3_2" role="img" aria-label="Salon Cheminée, brick wall and banquette" style="background-image: url('../../images/privatisation-salle-beaulieu.jpg');"></div>
+			<figcaption>
+				<h3 class="space__title">Salon Cheminée (fireplace room)</h3>
+				<p class="space__capacity">24 seated <span class="separator-cercle">•</span> 30 standing</p>
+			</figcaption>
+		</figure>
 			<figure class="space">
-				<div class="img-ratio-3_2" role="img" aria-label="Counter table along the exposed stone wall" style="background-image: url('../../images/privatisation-table-comptoir.jpg');"></div>
-				<figcaption>
-					<h3 class="space__title">Counter table</h3>
-					<p class="space__capacity">10 seated</p>
-				</figcaption>
-			</figure>
-			<figure class="space">
-				<div class="img-ratio-3_2" role="img" aria-label="Bar room with its long high table" style="background-image: url('../../images/privatisation-salle-comptoir.jpg');"></div>
-				<figcaption>
-					<h3 class="space__title">Bar room</h3>
-					<p class="space__capacity">35 standing</p>
-				</figcaption>
-			</figure>
+			<div class="img-ratio-3_2" role="img" aria-label="Counter table along the exposed stone wall" style="background-image: url('../../images/privatisation-table-comptoir.jpg');"></div>
+			<figcaption>
+				<h3 class="space__title">Counter table</h3>
+				<p class="space__capacity">8 seated</p>
+			</figcaption>
+		</figure>
+			<figure class="space space--wide">
+			<div class="img-ratio-3_2" role="img" aria-label="Bar room with its long high table" style="background-image: url('../../images/privatisation-salle-comptoir.jpg');"></div>
+			<figcaption>
+				<h3 class="space__title">Bar room</h3>
+				<p class="space__capacity">35 standing</p>
+			</figcaption>
+		</figure>
 		</div>
-		<p class="spaces__total text--center reveal-3"><strong>Whole restaurant</strong> <span class="separator-cercle">•</span> 60 seated <span class="separator-cercle">•</span> 100 standing</p>
+		<p class="spaces__total text--center reveal-3"><strong>Whole restaurant</strong> <span class="separator-cercle">•</span> 60 seated <span class="separator-cercle">•</span> 80 standing</p>
 	</section>
 
 	<!-- Formules at a glance -->
@@ -715,7 +803,6 @@ Business lunch, team dinner, end-of-year party, birthday or after-work drinks: w
 			<p class="reviews__score"><span class="reviews__note">4,8</span><span class="reviews__max">/5</span></p>
 			<p class="reviews__stars" aria-hidden="true">★★★★★</p>
 			<p class="reviews__count">Average rating from over 90 Google reviews</p>
-			
 			<div class="reviews__quotes"><blockquote class="reviews__quote"><span class="reviews__quote-stars" aria-label="5/5">★★★★★</span><p lang="fr">« J’ai célébré mon anniversaire avec 3 amies dans ce restaurant, le service était chaleureux et la cuisine superbe. Mention spéciale au ceviche de daurade qui était succulent. Un lieu idéal pour toutes les occasions »</p><cite>Léonie C. <span>· Google review, in French</span></cite></blockquote><blockquote class="reviews__quote"><span class="reviews__quote-stars" aria-label="5/5">★★★★★</span><p lang="fr">« Une très bonne adresse de quartier, authentique. Très bons plat, une ambiance très sympa avec des toiles d'artistes accrochées au mur et un accueil adorable de Florence, qui vous mets à l'aise. Une belle découverte. »</p><cite>Benjamin A. <span>· Google review, in French</span></cite></blockquote><blockquote class="reviews__quote"><span class="reviews__quote-stars" aria-label="5/5">★★★★★</span><p lang="fr">« Première expérience entre amis dans ce joli restaurant de quartier .La cuisine est excellente .oeuf poutargue,tataki de bœuf délicieux ,la cuisson des frites accompagnant parfaite et la mousse au chocolat un délice .La maîtresse des lieux est très sympathique .Incontournable,nous y retournerons . »</p><cite>Blake <span>· Google review, in French</span></cite></blockquote><blockquote class="reviews__quote"><span class="reviews__quote-stars" aria-label="5/5">★★★★★</span><p lang="fr">« Magnifique découverte !! Cuisine de grande qualité dans une ambiance raffinée… un restaurant que je recommande vivement pour passer un agréable moment 😁 ! »</p><cite>Jeremy <span>· Google review, in French</span></cite></blockquote><blockquote class="reviews__quote"><span class="reviews__quote-stars" aria-label="5/5">★★★★★</span><p lang="fr">« Restaurant soigné et accueillant service<br>Il y avait une exposition temporaire ce suis donne une ambiance feutrée au restaurant . »</p><cite>Nicole C. <span>· Google review, in French</span></cite></blockquote></div>
 			<div class="buttons-wrap">
 				<a class="btn btn--light" href="https://www.google.com/maps/search/?api=1&amp;query=Schnock+31+rue+Guillaume+Tell+75017+Paris" target="_blank" rel="noopener">Read the reviews</a>
@@ -729,7 +816,7 @@ Business lunch, team dinner, end-of-year party, birthday or after-work drinks: w
 		<h2 class="text--center reveal-1">Frequently asked questions</h2>
 		<hr class="divider--big divider--color reveal-1">
 		<div class="faq reveal-2">
-			<details class="faq__item"><summary>What is the minimum group size for a private event at Schnock?</summary><p>From 10 guests at the counter table. The Salon Cheminée seats 24 (30 standing), the Salle Beaulieu seats 25 (30 standing) and the Salle comptoir holds 35 standing. The whole restaurant can be booked for up to 60 seated or 100 standing.</p></details>
+			<details class="faq__item"><summary>What is the minimum group size for a private event at Schnock?</summary><p>From 10 guests. The Salle Beaulieu seats 20, the Salle Verrière 12 (25 guests for a cocktail reception when the two rooms are combined), the Salon Cheminée 24 seated (30 standing), the counter table 8 seated and the Salle comptoir 35 standing. The whole restaurant can be booked for up to 60 seated or 80 standing.</p></details>
 <details class="faq__item"><summary>How much are the group menus?</summary><p>Lunch: €32 (starter + main or main + dessert) or €38 (starter + main + dessert). Dinner: €55, or €80 for the prestige menu. After-work drinks at the bar: €25 per person. Prices per person, VAT included.</p></details>
 <details class="faq__item"><summary>Are drinks included?</summary><p>Menus include mineral water (1 bottle for 2) and hot drinks. You can add a welcome cocktail or glass of Champagne (€14) and a wine pairing chosen by our sommelier, from €17 per person.</p></details>
 <details class="faq__item"><summary>Can you adapt the menu for allergies or vegetarian diets?</summary><p>Yes. Every menu has a vegetarian option and we adapt dishes to your guests' allergies and diets. Just tell us in your quote request.</p></details>
@@ -739,85 +826,6 @@ Business lunch, team dinner, end-of-year party, birthday or after-work drinks: w
 		</div>
 	</section>
 
-	<!-- Quote form -->
-	<section class="s--contact-form reveal" id="devis">
-		<div class="reveal-1">
-			<div class="contact-form-wrap page-content page-content--xl">
-				<h2 class="text--center reveal-2">Request a quote</h2>
-				<hr class="divider--big divider--color reveal-3">
-				<p class="text--center reveal-4">Tell us about your event: <br />
-we will reply within one working day with a proposal.</p>
-				<div class="reveal-5">
-					<form name="devis-form" class="form" id="devis-form" action="#" novalidate="novalidate">
-	<input type="hidden" name="langue" value="anglais">
-	<div class="input--small">
-		<input type="text" name="firstname" id="d-firstname" placeholder="First name *" aria-label="First name" autocomplete="given-name" required="required" aria-required="true">
-	</div>
-
-	<div class="input--small">
-		<input type="text" name="lastname" id="d-lastname" placeholder="Last name *" aria-label="Last name" autocomplete="family-name" required="required" aria-required="true">
-	</div>
-
-	<div class="input--small">
-		<input type="email" name="email" id="d-email" placeholder="Your email address *" aria-label="Your email address" autocomplete="email" required="required" aria-required="true" data-msg-email="Please enter a valid email address">
-	</div>
-
-	<div class="input--small">
-		<input type="tel" name="phone" id="d-phone" placeholder="Phone *" aria-label="Phone" autocomplete="tel" required="required" aria-required="true">
-	</div>
-
-	<div class="input--full">
-		<input type="text" name="company" id="d-company" placeholder="Company" aria-label="Company" autocomplete="organization">
-	</div>
-
-	<div class="input--small">
-		<label class="form-label" for="d-date">Preferred date *</label>
-		<input type="date" name="date" id="d-date" required="required" aria-required="true">
-	</div>
-
-	<div class="input--small">
-		<label class="form-label" for="d-guests">Number of guests *</label>
-		<input type="number" name="guests" id="d-guests" min="10" max="100" placeholder="25" required="required" aria-required="true" data-msg-min="Private events from 10 guests">
-	</div>
-
-	<div class="input--small">
-		<label class="form-label" for="d-moment">Time of day</label>
-		<select name="moment" id="d-moment">
-			<option value="Déjeuner">Lunch</option>
-			<option value="Dîner" selected>Dinner</option>
-			<option value="After-work">After-work</option>
-			<option value="Je ne sais pas encore">Not sure yet</option>
-		</select>
-	</div>
-
-	<div class="input--small">
-		<label class="form-label" for="d-type">Event</label>
-		<select name="event" id="d-type">
-			<option value="Fête de fin d'année">End-of-year party</option>
-			<option value="Dîner d'entreprise">Company dinner</option>
-			<option value="Déjeuner d'affaires / séminaire">Business lunch / seminar</option>
-			<option value="Anniversaire">Birthday</option>
-			<option value="Pot de départ">Leaving party</option>
-			<option value="Autre">Other</option>
-		</select>
-	</div>
-
-	<div class="input--full">
-		<textarea name="message" id="d-message" placeholder="Your event (preferred room, menu, Champagne welcome, dietary needs…)" aria-label="Your event" rows="6"></textarea>
-	</div>
-        <div class="input--full" style="font-size:10px !important;">
-        Under article L.223-2 of the French Consumer Code, consumers may register on the Bloctel list to opt out of telemarketing calls: <a href="https://www.bloctel.gouv.fr" target="_blank" rel="noopener noreferrer">bloctel.gouv.fr</a>. For more information on how we process your data, see our <a href="../../politique-de-confidentialite/" target="_blank">privacy policy (in French)</a>.    </div>
-
-	<input class="btn btn--std input--full" type="submit" id="send-devis" value="Send my request">
-
-	<div class="step2 hidden">
-		<strong>Thank you! </strong>We have received your request and will reply within one working day with a proposal.</div>
-</form>
-				<p class="text--center text--sm devis__phone">Prefer to talk it through? Call us on <a href="tel:+33147648604">01 47 64 86 04</a>.</p>
-				</div>
-			</div>
-		</div>
-	</section>
 </div>
 
 <footer>

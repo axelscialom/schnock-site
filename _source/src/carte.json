@@ -1,0 +1,185 @@
+{
+  "_source": "Menu_Schnock.docx envoyé par axel le 12/11/2026 (retours du 13 novembre)",
+  "carte": [
+    {
+      "title": "Entrées",
+      "dishes": [
+        [
+          "Velouté du moment",
+          "",
+          "9,00"
+        ],
+        [
+          "Poireau rôti",
+          "Servi froid, stracciatella, parmesan",
+          "11,00"
+        ],
+        [
+          "Tartare de saumon",
+          "Mangue, gingembre",
+          "14,00"
+        ],
+        [
+          "Beignets de courgette",
+          "Menthe, parmesan",
+          "12,00"
+        ],
+        [
+          "Charcuterie corse",
+          "Coppa, lonzu, salsiccia",
+          "19,00"
+        ],
+        [
+          "Œufs meurette",
+          "Lardons & Croûtons",
+          "12,00"
+        ],
+        [
+          "Os à moelle rôti",
+          "Fleur de sel",
+          "15,00"
+        ],
+        [
+          "Poêlée de girolles et shitakes",
+          "Ail, persil",
+          "17,00"
+        ],
+        [
+          "Escargots de Bourgogne × 7",
+          "",
+          "15,00"
+        ]
+      ]
+    },
+    {
+      "title": "Salades",
+      "dishes": [
+        [
+          "Caesar salade",
+          "",
+          "19,00"
+        ],
+        [
+          "Black Tiger salade",
+          "Crevettes XXL, avocat, Granny Smith, pamplemousse, roquette",
+          "24,00"
+        ]
+      ]
+    },
+    {
+      "title": "Plats",
+      "dishes": [
+        [
+          "Gnocchi à la crème truffée",
+          "",
+          "22,00"
+        ],
+        [
+          "Maquereau entier en portefeuille",
+          "Croûte de moutarde, pommes grenaille",
+          "22,00"
+        ],
+        [
+          "Saumon mi-cuit au miso",
+          "Légumes poêlés",
+          "26,00"
+        ],
+        [
+          "Grand tartare de saumon",
+          "Mangue, gingembre, patate douce",
+          "27,00"
+        ],
+        [
+          "Paleron de bœuf à la cuillère",
+          "Mousseline de pommes de terre",
+          "26,00"
+        ],
+        [
+          "Travers de porc ibérique Duroc",
+          "Pommes grenaille",
+          "25,00"
+        ],
+        [
+          "Bœuf Angus émincé Chuck Flap",
+          "Sauce chimichurri, pommes grenaille",
+          "31,00"
+        ],
+        [
+          "Tataki Angus",
+          "Soja, sésame, pommes allumettes",
+          "27,00"
+        ]
+      ]
+    },
+    {
+      "title": "Desserts",
+      "dishes": [
+        [
+          "Fromages corses",
+          "",
+          "16,00"
+        ],
+        [
+          "Tatin traditionnelle",
+          "",
+          "13,00"
+        ],
+        [
+          "Cheesecake aux fruits rouges",
+          "",
+          "8,00"
+        ],
+        [
+          "Crème brûlée à la vanille",
+          "",
+          "10,00"
+        ],
+        [
+          "Mi-cuit au chocolat",
+          "",
+          "11,00"
+        ],
+        [
+          "Mousse au chocolat",
+          "Noisettes torréfiées",
+          "10,00"
+        ],
+        [
+          "Mangue fraîche",
+          "",
+          "15,00"
+        ],
+        [
+          "Pruneaux à l’Armagnac",
+          "",
+          "14,00"
+        ],
+        [
+          "Irish coffee",
+          "",
+          "12,00"
+        ]
+      ]
+    }
+  ],
+  "dejeuner": {
+    "descr": "Des menus renouvelés chaque jour à l’ardoise du marché",
+    "prices": [
+      "Entrée-plat ou plat-dessert : 25 €",
+      "Entrée-plat-dessert : 30 €"
+    ],
+    "note": "Du lundi au vendredi sauf jour férié"
+  },
+  "emporter": {
+    "title": "À emporter / Takeaway",
+    "descr": "Notre Fish & Chips, à emporter",
+    "dishes": [
+      [
+        "Fish & Chips",
+        "",
+        "12,50"
+      ]
+    ],
+    "note": "Renseignements au <a href=\"tel:+33147648604\">01 47 64 86 04</a>"
+  }
+}

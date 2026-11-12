@@ -176,8 +176,6 @@ def transform(s):
     # brochure logo instead of Zenchef's small one
     s = s.replace('<img class="logo" src="/images/9695f03cc97badd7b621b3dff5662d18.png"', '<img class="logo" src="/images/logo-schnock-wordmark.png"')
     s = sub1(r'(?=</body>)', lambda m: read(os.path.join(S, 'src/mobile-bar.html')), s, count=1)
-    # lunch formula price confirmed by axel on 2026-10-27 (Zenchef showed 25 €)
-    s = s.replace('<span class="menu__price">25,00 EUR</span>', '<span class="menu__price">32,00 EUR</span>')
     # Horaires 2026-10-27 : samedi 19h-01h, fermé le dimanche
     s = re.sub(r'(Samedi\s*</h5>\s*<p class="hours">\s*)19h00 - 22h00', r'\g<1>19h00 - 01h00', s)
     s = re.sub(r'\s*<div class="day-wrap">\s*<h5 class="day">\s*Dimanche\s*</h5>\s*<p class="hours">[^<]*</p>\s*</div>', '', s)
@@ -203,13 +201,13 @@ SEO = {
     '': ("Schnock | Restaurant cuisine de marché & comptoir à vins, Paris 17e (Pereire)",
          "Schnock, cuisine de marché et comptoir à vins au 31 rue Guillaume Tell, Paris 17e, à deux pas de la place Pereire. Déjeuner, dîner, after-work et privatisation. Réservez en ligne."),
     'menus-carte': ("Carte & menus | Schnock, restaurant Paris 17e",
-                    "La carte de Schnock : cuisine de marché de saison, formule déjeuner et vins de dégustation. Restaurant 31 rue Guillaume Tell, Paris 17e (Pereire)."),
+                    "La carte de Schnock : cuisine de marché de saison, formule déjeuner 25 € ou 30 €, Fish & Chips à emporter 12,50 €. Restaurant 31 rue Guillaume Tell, Paris 17e (Pereire)."),
     'photos': ("Photos du restaurant | Schnock, Paris 17e",
                "Salles, salons privatisables, façade et plats de Schnock, restaurant de cuisine de marché à Paris 17e, place Pereire."),
     'informations-contact': ("Accès & contact | Schnock, 31 rue Guillaume Tell, Paris 17e",
                              "Venir chez Schnock : 31 rue Guillaume Tell, 75017 Paris, métro Pereire, voiturier. Horaires, téléphone 01 47 64 86 04 et formulaire de contact."),
-    'privatisation': ("Privatisation restaurant Paris 17e | Schnock, salons de 10 à 100 personnes",
-                      "Privatisez Schnock à Paris 17e (Pereire) : salons de 10 à 35 personnes, restaurant entier jusqu'à 60 assis ou 100 debout. Menus de groupe dès 32 €, after-work, accords mets & vins. Devis sous 24h."),
+    'privatisation': ("Privatisation restaurant Paris 17e | Schnock, salons de 10 à 80 personnes",
+                      "Privatisez Schnock à Paris 17e (Pereire) : salons de 10 à 35 personnes, restaurant entier jusqu'à 60 assis ou 80 debout. Menus de groupe dès 32 €, after-work, accords mets & vins. Devis sous 24h."),
 }
 
 ALBUM_ALT = {
@@ -298,6 +296,7 @@ def build_pages():
         s = transform(read(os.path.join(DL, raw)))
         s = set_head(s, out)
         s = improve_photos(s)
+        s = apply_carte(s, out)
         if out == '':
             s = sub1(r'(?=\t<!-- Useful infos & opening hours -->)', lambda m: teaser, s, count=1)
             s = sub1(r'(?=\t\t<!-- Menus -->)', lambda m: reviews, s, count=1)
@@ -307,6 +306,80 @@ def build_pages():
                      lambda m: '<h1 class="hero-picture__title hero-logo text--center reveal-2"><img src="/images/logo-schnock-blanc.png" alt="Schnock, cuisine et comptoir" width="954" height="683"></h1>', s, count=1)
         write(os.path.join(OUT, out, 'index.html'), s)
     return transform(read(os.path.join(DL, PAGES['informations-contact'])))
+
+
+# ---------- carte (retours du 13 novembre : carte Word, formule déjeuner 25/30 €, Fish & Chips à emporter) ----------
+EMPORTER_ID = 'menu-a-emporter'
+
+
+def carte_dish(name, descr, price, home=False):
+    if home:
+        d = ('\t<p class="dish__descr text--sm text--grey">%s</p>\n' % descr) if descr else ''
+        return ('<div class="dish-no-image">\n<div class="dish-content-wrap">\n\t<div class="dish-title-wrap">\n'
+                '\t\t<h4 class="dish__title">%s</h4>\n\t\t<div class="dish-price-wrap"><div class="three-dishes-wrap"><div class="dish-quant">'
+                '<h4 class="dish__price">%s EUR</h4></div></div></div>\n\t</div>\n%s</div>\n</div>\n' % (name, price, d))
+    d = ('\t\t<p class="dish__descr">%s</p>\n' % descr) if descr else ''
+    return ('<div class="dish-no-image">\n\t<div class="dish-title-wrap">\n\t\t<h4 class="dish__title">%s</h4>\n%s\t</div>\n'
+            '\t<div class="dish-price-wrap"><div class="three-dishes-wrap"><div class="dish-quant">'
+            '<span class="dish__price">%s EUR</span></div></div></div>\n</div>\n' % (name, d, price))
+
+
+def carte_section(id_, title, descr, cats, prices=None, note=None):
+    out = ["<section class='s--menus reveal'><div class=\"menu-wrap page-content page-content--lg reveal-2\" id=\"%s\">" % id_,
+           '\t<div class="menu-title-wrap">', '\t\t<h2 class="menu__title">%s</h2>' % title]
+    if descr:
+        out.append('\t\t<p class="menu__descr">%s</p>' % descr)
+    if prices:
+        out.append('\t\t<ul class="menu__formules">%s</ul>' % ''.join('<li>%s</li>' % p for p in prices))
+    out.append('\t\t<div class="divider-vertical divider--color"></div>\n\t</div>')
+    for title_, dishes in cats:
+        if title_:
+            out.append('\t<div class="menu-category"><div class="menu-category-title-wrap"><h3 class="menu-category__title">%s</h3></div></div>' % title_)
+        out.append('\t<div class="dishes-wrap">\n' + ''.join(carte_dish(*d) for d in dishes) + '\t</div>')
+    if note:
+        out.append('\t<p class="menu__note">%s</p>' % note)
+    out.append('</div>\n</section>')
+    return '\n'.join(out)
+
+
+def carte_ld(c):
+    def item(d):
+        it = {'@type': 'MenuItem', 'name': d[0], 'offers': {'@type': 'Offer', 'price': d[2].replace(',', '.'), 'priceCurrency': 'EUR'}}
+        if d[1]:
+            it['description'] = d[1]
+        return it
+    sections = [{'@type': 'MenuSection', 'name': cat['title'], 'hasMenuItem': [item(d) for d in cat['dishes']]} for cat in c['carte']]
+    sections.append({'@type': 'MenuSection', 'name': c['emporter']['title'], 'hasMenuItem': [item(d) for d in c['emporter']['dishes']]})
+    return {'@context': 'https://schema.org', '@type': 'Menu', '@id': SITE + 'menus-carte/#carte', 'name': 'Carte de Schnock',
+            'inLanguage': 'fr', 'url': SITE + 'menus-carte/', 'hasMenuSection': sections}
+
+
+def apply_carte(s, page):
+    c = json.loads(read(os.path.join(S, 'src/carte.json')))
+    em = c['emporter']
+    if page == 'menus-carte':
+        s = sub1(r"<!-- MENU #462735-->.*?</section>", lambda m: '<!-- MENU #462735-->\n' + carte_section(
+            'menu-462735', 'Notre carte', 'Cuisine de marché sincère et de saison', [(k['title'], k['dishes']) for k in c['carte']]), s, count=1)
+        dj = c['dejeuner']
+        s = sub1(r"<!-- MENU #465346-->.*?</section>", lambda m: '<!-- MENU #465346-->\n' + carte_section(
+            'menu-465346', 'Formule déjeuner', dj['descr'], [], dj['prices'], dj['note'])
+            + '<!-- MENU A EMPORTER-->\n' + carte_section(EMPORTER_ID, em['title'], em['descr'], [('', em['dishes'])], note=em['note']), s, count=1)
+        s = sub1(r'(<a class="menu-nav__item anchor-trigger" data-anchor="menu-465346" href="#menu-465346">Formule déjeuner</a>)',
+                 lambda m: m.group(1) + '\n\t\t\t\t\t<a class="menu-nav__item anchor-trigger" data-anchor="%s" href="#%s">%s</a>' % (EMPORTER_ID, EMPORTER_ID, em['title']), s, count=1)
+        s = sub1(r'(?=</head>)', lambda m: ld_script(carte_ld(c)) + '\n', s, count=1)
+    elif page == '':
+        first = [d for k in c['carte'] for d in k['dishes']][:6]
+        s = sub1(r'(<div class="menu-wrap" id="menu-462735">\s*<div class="dishes-wrap grid grid-2-col grid-gap-sm">).*?(?=<!-- MENU #465346-->)',
+                 lambda m: m.group(1) + '\n' + ''.join(carte_dish(*d, home=True) for d in first) + '\t</div>\n</div>\n', s, count=1)
+        s = sub1(r'(<a class="menu-nav__item menu-nav__item--home" data-anchor="menu-465346">Formule déjeuner</a>)',
+                 lambda m: m.group(1) + '\n\t\t\t\t\t<a class="menu-nav__item menu-nav__item--home menu-nav__item--emporter" data-anchor="%s">%s</a>' % (EMPORTER_ID, em['title']), s, count=1)
+        dj = c['dejeuner']
+        dj_html = ('<div class="home-formule text--center"><p class="menu__descr">%s</p><ul class="menu__formules">%s</ul><p class="menu__note">%s</p></div>'
+                   % (dj['descr'], ''.join('<li>%s</li>' % p for p in dj['prices']), dj['note']))
+        s = sub1(r'(<div class="menu-wrap" id="menu-465346">\s*<div class="dishes-wrap grid grid-2-col grid-gap-sm">)\s*(</div>\s*</div>)',
+                 lambda m: m.group(1) + '</div>' + dj_html + '\n</div>\n<!-- MENU A EMPORTER-->\n<div class="menu-wrap" id="%s">\n\t<div class="dishes-wrap grid grid-2-col grid-gap-sm">\n%s\t</div>\n\t<p class="menu__note text--center">%s</p>\n</div>' % (
+                     EMPORTER_ID, ''.join(carte_dish(*d, home=True) for d in em['dishes']), em['note']), s, count=1)
+    return s
 
 
 def render_menu(m):
