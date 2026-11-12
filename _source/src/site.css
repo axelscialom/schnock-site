@@ -518,10 +518,11 @@
 	border-radius: 20px;
 }
 
-/* Retours du 13 novembre : devis en haut de page, dans un bloc de couleur */
-.s--devis {
-	padding: var(--marge-lg) 0;
-	background-color: #2B3A44;
+/* Retours du 13 novembre : devis en haut de page, dans un bloc rose terracotta (demande de la cliente) */
+.s--devis,
+.s--devis > div,
+.s--devis .contact-form-wrap {
+	background-color: #A85A4A;
 	color: #FFF;
 }
 
@@ -533,12 +534,12 @@
 }
 
 .s--devis .divider--color {
-	border-color: var(--color_gold);
-	background-color: var(--color_gold);
+	border-color: #FFF;
+	background-color: #FFF;
 }
 
 .s--devis .form-label {
-	color: rgba(255, 255, 255, .75);
+	color: rgba(255, 255, 255, .85);
 }
 
 .s--devis input:not([type=submit]),
@@ -549,8 +550,8 @@
 }
 
 .s--devis input[type=submit] {
-	background-color: var(--color_gold);
-	border-color: var(--color_gold);
+	background-color: #2B3A44;
+	border-color: #2B3A44;
 	color: #FFF;
 }
 
@@ -558,29 +559,32 @@
 .s--devis input[type=submit]:focus {
 	background-color: #FFF;
 	border-color: #FFF;
-	color: #2B3A44;
+	color: #A85A4A;
 }
 
 .s--devis label.error,
 .s--devis .error:not(input):not(textarea):not(select) {
-	color: #F2C27B;
+	color: #FFE3C4;
 }
 
 .s--devis .devis__phone a {
-	color: var(--color_gold);
+	color: #FFF;
+	text-decoration: underline;
 }
 
 /* Salles : Verrière (photo à venir), Beaulieu + Verrière en cocktail, salle comptoir en pleine largeur */
 .space__placeholder {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	position: relative;
 	background-color: #2B3A44;
 }
 
 .space__placeholder img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	width: 40%;
 	height: auto;
+	transform: translate(-50%, -50%);
 }
 
 .spaces__combo {
@@ -598,7 +602,8 @@
 	}
 
 	.space--wide .img-ratio-3_2 {
-		padding-top: 33%;
+		padding-top: 36%;
+		background-position: center 60%;
 	}
 }
 
@@ -622,4 +627,9 @@
 
 .menu-nav__item--emporter {
 	color: var(--color_gold);
+}
+
+.menus-wrapper #menu-a-emporter .dishes-wrap {
+	grid-template-columns: minmax(0, 560px);
+	justify-content: center;
 }
