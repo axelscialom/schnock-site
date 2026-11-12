@@ -287,7 +287,7 @@ def reviews_html():
     q = ''
     if quotes:
         q = '<div class="reviews__quotes">%s</div>' % ''.join(
-            '<blockquote class="reviews__quote">« %s »<cite>%s</cite></blockquote>' % (r['text'], r['author']) for r in quotes)
+            '<blockquote class="reviews__quote"><span class="reviews__quote-stars" aria-label="5/5">★★★★★</span><p lang="fr">« %s »</p><cite>%s <span>· Avis Google</span></cite></blockquote>' % (r['text'], r['author']) for r in quotes)
     return read(os.path.join(S, 'src/reviews.html')).replace('{{QUOTES}}', q)
 
 
