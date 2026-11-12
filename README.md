@@ -14,3 +14,7 @@ Le français reste la langue principale, à la racine. Les versions anglaise, es
 - Les traductions sont dans `_source/i18n/t-*.json` : une ligne par texte français, `[fr, en, es, it, zh, ja]`. Si un texte français change ou s'ajoute, le build s'arrête et liste les textes manquants ; `python3 _source/i18n.py extract` les écrit dans `_source/i18n/strings.fr.json`.
 - `_source/i18n/keep.json` liste les textes identiques dans toutes les langues (noms propres, adresse).
 - Les pages légales restent en français. Les formulaires envoient toujours les choix en français, avec un champ `langue` pour répondre au client dans sa langue.
+
+## Indexation Google
+
+`python3 _source/seo.py` se lance en dernier (après `i18n.py build`). Il ajoute la balise canonique et un lien de retour aux pages légales, écrit la page 404, ajoute `<lastmod>` au sitemap et crée les pages de redirection des anciennes adresses Zenchef (liste `REDIRECTS` dans le script ; ajouter ici toute ancienne URL que Search Console signale en 404).
