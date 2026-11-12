@@ -21,7 +21,7 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://www.schnock-restaurant.fr'
 LANGS = ['en', 'es', 'it', 'zh', 'ja']                     # langues publiées hors FR
-OLD_LANGS = ['de', 'nl', 'pt', 'ru', 'ko', 'ar', 'fr']      # langues Zenchef non reprises
+OLD_LANGS = ['de', 'nl', 'pt', 'ru', 'ko', 'ar', 'da', 'sv', 'no', 'el', 'cs', 'fr']  # langues Zenchef non reprises
 PAGES = ['menus-carte', 'photos', 'informations-contact', 'privatisation']
 LEGAL = ['mentions-legales', 'politique-de-confidentialite', 'politique-cookies', 'accessibilite']
 
@@ -49,6 +49,32 @@ REDIRECTS = {
     '/confidentialite/': '/politique-de-confidentialite/',
     '/cookies/': '/politique-cookies/',
 }
+# adresses exactes relevées dans Search Console (export du 2026-11-12) : slugs traduits de Zenchef
+_EXACT = {
+    '/': ['/unsere-restaurants/', '/onze-restaurants/', '/nl/onze-restaurants/', '/vores-restauranter/',
+          '/reserver-une-table/', '/da/bestil-et-bord/', '/ru/zakazat-stolik/', '/el/kleiste-ena-trapezi/',
+          '/de/einen-tisch-reservieren/', '/cs/rezervovat-tabulku/', '/sv/boka-bord/', '/nl/boek-een-tafel/'],
+    '/en/': ['/our-restaurants/', '/en/book-a-table/'],
+    '/es/': ['/nuestros-restaurantes/', '/es/reservar-una-mesa/'],
+    '/it/': ['/i-nostri-ristoranti/', '/it/prenotare-un-tavolo/'],
+    '/menus-carte/': ['/menús/', '/menus-karte/', '/sv/menyer/', '/no/menyer/', '/da/menuer/'],
+    '/es/menus-carte/': ['/es/menús/'],
+    '/photos/': ['/bilder/', '/fotografie/', '/foton/', '/foto/', '/fotos/', '/fotografias/'],
+    '/es/photos/': ['/es/fotografias/'],
+    '/informations-contact/': ['/adress-kontakt/', '/kontaktadresse/', '/adresse-kontakt/', '/adresa-kontakt/',
+                               '/adres-contact/', '/endereco-contacto/', '/kontaktinformationen/',
+                               '/dirección-contacto/', '/direccion-de-contacto/'],
+    '/en/informations-contact/': ['/address-contact/'],
+    '/it/informations-contact/': ['/informazioni-contatti/'],
+    '/es/informations-contact/': ['/es/dirección-contacto/', '/es/direccion-de-contacto/'],
+    '/politique-cookies/': ['/zh/cookie-policy/', '/el/cookie-policy/', '/no/cookie-policy/', '/ru/cookie-policy/',
+                            '/ja/cookie-policy/', '/en/cookie-policy/', '/es/politica-cookies/', '/nl/cookie-beleid/'],
+    '/accessibilite/': ['/no/tilgjengelighet/', '/it/accessibilita/'],
+    '/politique-de-confidentialite/': ['/el/politiki-aporritou/', '/cs/zasady-ochrony-soukromi/'],
+}
+for _new, _olds in _EXACT.items():
+    for _old in _olds:
+        REDIRECTS[_old] = _new
 # pages légales traduites par Zenchef : la version française seule existe désormais
 for l in LANGS:
     for p in LEGAL:
