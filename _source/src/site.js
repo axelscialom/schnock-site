@@ -57,3 +57,19 @@ document.querySelectorAll('.hero-picture').forEach(function (hero) {
 	hero.style.backgroundImage = 'none'
 	hero.insertBefore(layer, hero.firstChild)
 })
+
+//-- Fish & Chips video: loads and plays (muted, looped) only once it is on screen
+document.querySelectorAll('video[data-src]').forEach(function (video) {
+	function start() {
+		if (!video.src) video.src = video.getAttribute('data-src')
+		var p = video.play()
+		if (p && p.catch) p.catch(function () {})
+	}
+	if (!('IntersectionObserver' in window)) return start()
+	new IntersectionObserver(function (entries) {
+		entries.forEach(function (e) {
+			if (e.isIntersecting) start()
+			else if (video.src) video.pause()
+		})
+	}).observe(video)
+})

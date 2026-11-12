@@ -192,6 +192,10 @@ def transform(s):
     s = sub1(r'(<script src="/js/globals/script\.js"></script>)', r'<script src="/js/site.js"></script>\n\1', s, count=1)
     s = sub1(r'(<div class="footer__btns">.*?Réserver\s*</a>)',
              r'\1' + '\n\t\t\t\t\t<a class="btn btn--std btn--small btn--privatisation" href="/privatisation/">Privatiser</a>', s, count=1)
+    # "À emporter" entry after "Formule déjeuner" in the header and burger "Cartes & Menus" dropdowns
+    s = re.sub(r'(<li>\s*<a( onclick="remove_burger_menu\(\)")? href="([^"]*)menus-carte/#menu-465346">Formule déjeuner</a>\s*</li>)',
+               lambda m: m.group(1) + '\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<a%s href="%smenus-carte/#%s">À emporter / Takeaway</a>\n\t\t\t\t\t</li>' % (
+                   m.group(2) or '', m.group(3), EMPORTER_ID), s)
     return s
 
 
@@ -324,7 +328,12 @@ def carte_dish(name, descr, price, home=False):
             '<span class="dish__price">%s EUR</span></div></div></div>\n</div>\n' % (name, d, price))
 
 
-def carte_section(id_, title, descr, cats, prices=None, note=None):
+def takeaway_video(cls=''):
+    return ('<div class="takeaway-video%s"><video data-src="/images/schnock-fish-and-chips.mp4" poster="/images/schnock-fish-and-chips-poster.jpg" '
+            'muted loop playsinline preload="none" width="720" height="1280" aria-label="Le Fish &amp; Chips de Schnock en vidéo"></video></div>' % cls)
+
+
+def carte_section(id_, title, descr, cats, prices=None, note=None, media=''):
     out = ["<section class='s--menus reveal'><div class=\"menu-wrap page-content page-content--lg reveal-2\" id=\"%s\">" % id_,
            '\t<div class="menu-title-wrap">', '\t\t<h2 class="menu__title">%s</h2>' % title]
     if descr:
@@ -332,6 +341,8 @@ def carte_section(id_, title, descr, cats, prices=None, note=None):
     if prices:
         out.append('\t\t<ul class="menu__formules">%s</ul>' % ''.join('<li>%s</li>' % p for p in prices))
     out.append('\t\t<div class="divider-vertical divider--color"></div>\n\t</div>')
+    if media:
+        out.append('\t' + media)
     for title_, dishes in cats:
         if title_:
             out.append('\t<div class="menu-category"><div class="menu-category-title-wrap"><h3 class="menu-category__title">%s</h3></div></div>' % title_)
@@ -363,7 +374,7 @@ def apply_carte(s, page):
         dj = c['dejeuner']
         s = sub1(r"<!-- MENU #465346-->.*?</section>", lambda m: '<!-- MENU #465346-->\n' + carte_section(
             'menu-465346', 'Formule déjeuner', dj['descr'], [], dj['prices'], dj['note'])
-            + '<!-- MENU A EMPORTER-->\n' + carte_section(EMPORTER_ID, em['title'], em['descr'], [('', em['dishes'])], note=em['note']), s, count=1)
+            + '<!-- MENU A EMPORTER-->\n' + carte_section(EMPORTER_ID, em['title'], em['descr'], [('', em['dishes'])], note=em['note'], media=takeaway_video()), s, count=1)
         s = sub1(r'(<a class="menu-nav__item anchor-trigger" data-anchor="menu-465346" href="#menu-465346">Formule déjeuner</a>)',
                  lambda m: m.group(1) + '\n\t\t\t\t\t<a class="menu-nav__item anchor-trigger" data-anchor="%s" href="#%s">%s</a>' % (EMPORTER_ID, EMPORTER_ID, em['title']), s, count=1)
         s = sub1(r'(?=</head>)', lambda m: ld_script(carte_ld(c)) + '\n', s, count=1)
@@ -377,8 +388,8 @@ def apply_carte(s, page):
         dj_html = ('<div class="home-formule text--center"><p class="menu__descr">%s</p><ul class="menu__formules">%s</ul><p class="menu__note">%s</p></div>'
                    % (dj['descr'], ''.join('<li>%s</li>' % p for p in dj['prices']), dj['note']))
         s = sub1(r'(<div class="menu-wrap" id="menu-465346">\s*<div class="dishes-wrap grid grid-2-col grid-gap-sm">)\s*(</div>\s*</div>)',
-                 lambda m: m.group(1) + '</div>' + dj_html + '\n</div>\n<!-- MENU A EMPORTER-->\n<div class="menu-wrap" id="%s">\n\t<div class="dishes-wrap grid grid-2-col grid-gap-sm">\n%s\t</div>\n\t<p class="menu__note text--center">%s</p>\n</div>' % (
-                     EMPORTER_ID, ''.join(carte_dish(*d, home=True) for d in em['dishes']), em['note']), s, count=1)
+                 lambda m: m.group(1) + '</div>' + dj_html + '\n</div>\n<!-- MENU A EMPORTER-->\n<div class="menu-wrap" id="%s">\n\t%s\n\t<div class="dishes-wrap grid grid-2-col grid-gap-sm">\n%s\t</div>\n\t<p class="menu__note text--center">%s</p>\n</div>' % (
+                     EMPORTER_ID, takeaway_video(' takeaway-video--home'), ''.join(carte_dish(*d, home=True) for d in em['dishes']), em['note']), s, count=1)
     return s
 
 
