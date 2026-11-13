@@ -210,8 +210,8 @@ SEO = {
                "Salles, salons privatisables, façade et plats de Schnock, restaurant de cuisine de marché à Paris 17e, place Pereire."),
     'informations-contact': ("Accès & contact | Schnock, 31 rue Guillaume Tell, Paris 17e",
                              "Venir chez Schnock : 31 rue Guillaume Tell, 75017 Paris, métro Pereire, voiturier. Horaires, téléphone 01 47 64 86 04 et formulaire de contact."),
-    'privatisation': ("Privatisation restaurant Paris 17e | Schnock, salons de 10 à 80 personnes",
-                      "Privatisez Schnock à Paris 17e (Pereire) : salons de 10 à 35 personnes, restaurant entier jusqu'à 60 assis ou 80 debout. Menus de groupe dès 32 €, after-work, accords mets & vins. Devis sous 24h."),
+    'privatisation': ("Privatisation restaurant Paris 17e | Schnock, salons de 8 à 80 personnes",
+                      "Privatisez Schnock à Paris 17e (Pereire) : salons de 8 à 35 personnes, restaurant entier jusqu'à 60 assis ou 80 debout. Menus de groupe dès 32 €, after-work, accords mets & vins. Devis sous 24h."),
 }
 
 ALBUM_ALT = {
