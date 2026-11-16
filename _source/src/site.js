@@ -1,6 +1,7 @@
 // Contact and quote requests are emailed through FormSubmit (no account, no server).
-// Set the address that should receive them; left empty, forms only show the thank-you message.
-var SCHNOCK_FORM_ENDPOINT = 'https://formsubmit.co/ajax/schnock.resto@gmail.com'
+// The hashed key FormSubmit gave for schnock.resto@gmail.com: it hides the address from spam bots
+// and stops the repeated activation emails. Left empty, forms only show the thank-you message.
+var SCHNOCK_FORM_ENDPOINT = 'https://formsubmit.co/ajax/bd66bd1e31e4cf72497d86a96694b581'
 
 //-- Messages in the page language (the site exists in fr, en, es, it, zh, ja)
 var SCHNOCK_LANG = (document.documentElement.lang || 'fr').slice(0, 2)
@@ -41,7 +42,14 @@ function schnockSendForm(form, subject, done) {
 		dataType: 'json',
 		headers: { Accept: 'application/json' },
 	})
-		.done(done)
+		.done(function (res) {
+			// FormSubmit answers 200 even when it refuses (e.g. form not activated yet): check the flag
+			if (res && String(res.success) === 'false') {
+				alert(SCHNOCK_TEXT.failed)
+				return
+			}
+			done(res)
+		})
 		.fail(function () {
 			alert(SCHNOCK_TEXT.failed)
 		})
