@@ -75,6 +75,74 @@ _EXACT = {
 for _new, _olds in _EXACT.items():
     for _old in _olds:
         REDIRECTS[_old] = _new
+# Zenchef publiait chaque page avec un slug traduit, dans ~18 langues, avec ou sans préfixe
+# de langue (/fotos/, /es/fotos/, /cs/nase-restaurace/…). Google en découvre au fil de l'eau :
+# on redirige toute la grille (slug x préfixe) plutôt que d'attendre les 404 une par une.
+SLUGS = {
+    'home': ['nos-restaurants', 'our-restaurants', 'unsere-restaurants', 'nuestros-restaurantes',
+             'i-nostri-ristoranti', 'onze-restaurants', 'os-nossos-restaurantes', 'nossos-restaurantes',
+             'vores-restauranter', 'våra-restauranger', 'vara-restauranger', 'våre-restauranter',
+             'vare-restauranter', 'naše-restaurace', 'nase-restaurace', 'nasze-restauracje',
+             'nashi-restorany', 'ta-estiatoria-mas', 'ta-estiatoriá-mas', 'accueil', 'home', 'inicio', 'startseite',
+             'reserver-une-table', 'book-a-table', 'einen-tisch-reservieren', 'tisch-reservieren',
+             'reservar-una-mesa', 'reservar-uma-mesa', 'prenotare-un-tavolo', 'boek-een-tafel',
+             'boka-bord', 'bestil-et-bord', 'bestill-et-bord', 'zakazat-stolik', 'kleiste-ena-trapezi',
+             'rezervovat-tabulku', 'rezervovat-stul', 'zarezerwuj-stolik', 'reservation', 'reserver', 'booking'],
+    'menus-carte': ['menus', 'menu', 'menús', 'menues', 'menus-karte', 'menu-karte', 'speisekarte', 'karte',
+                    'menus-carta', 'menu-carta', 'carta', 'menus-y-carta', 'menu-e-carta', 'menu-kaart',
+                    'menus-kaart', 'menukaart', 'kaart', 'ementas', 'menus-e-carta', 'cardapio', 'cardápio',
+                    'menyer', 'meny', 'menuer', 'menukort', 'menyu', 'menou', 'menoú', 'jidelni-listek',
+                    'jídelní-lístek', 'nabidka', 'karta', 'carte', 'la-carte', 'nos-menus', 'our-menus'],
+    'photos': ['fotos', 'foto', 'fotografie', 'fotografias', 'fotografías', 'fotografia', 'fotografies',
+               'fotografii', 'bilder', 'billeder', 'foton', 'fotky', 'zdjecia', 'zdjęcia', 'galerie', 'gallery',
+               'galeria', 'galleria', 'galerij', 'pictures', 'images'],
+    'informations-contact': ['address-contact', 'adresse-kontakt', 'adress-kontakt', 'kontaktadresse',
+                             'adresa-kontakt', 'adres-contact', 'adres-kontakt', 'endereco-contacto',
+                             'endereço-contacto', 'endereco-contato', 'kontaktinformationen', 'informazioni-contatti',
+                             'indirizzo-contatto', 'indirizzo-contatti', 'direccion-de-contacto',
+                             'dirección-de-contacto', 'direccion-contacto', 'dirección-contacto',
+                             'adresse-contact', 'adresse-og-kontakt', 'adress-och-kontakt', 'adresa-kontakty',
+                             'adresa-a-kontakt', 'dieuthynsi-epikoinonia', 'contact', 'contacto', 'contato',
+                             'contatti', 'kontakt', 'informations', 'infos-pratiques', 'acces', 'access'],
+    'privatisation': ['privatisations', 'evenements', 'events', 'eventos', 'eventi', 'groupes', 'groups',
+                      'privatisation-evenements', 'private-events', 'privatization'],
+    'politique-cookies': ['cookie-policy', 'cookies-policy', 'cookies', 'politica-cookies', 'politica-de-cookies',
+                          'política-de-cookies', 'politica-dei-cookie', 'cookie-richtlinie', 'cookie-richtlinien',
+                          'cookie-beleid', 'cookiebeleid', 'cookiepolitik', 'cookie-politik', 'cookiepolicy',
+                          'zasady-cookies', 'zasady-pouzivani-cookies', 'politika-cookie', 'politiki-cookies'],
+    'politique-de-confidentialite': ['privacy-policy', 'privacy', 'datenschutz', 'datenschutzerklarung',
+                                     'datenschutzrichtlinie', 'politica-de-privacidad', 'política-de-privacidad',
+                                     'politica-de-privacidade', 'informativa-sulla-privacy', 'privacybeleid',
+                                     'privatlivspolitik', 'integritetspolicy', 'personvernerklaering',
+                                     'personvern', 'politika-konfidencialnosti', 'politiki-aporritou',
+                                     'zasady-ochrony-soukromi', 'polityka-prywatnosci', 'confidentialite'],
+    'accessibilite': ['accessibility', 'barrierefreiheit', 'accesibilidad', 'acessibilidade', 'accessibilita',
+                      'accessibilità', 'toegankelijkheid', 'tilgaengelighed', 'tilgængelighed', 'tillganglighet',
+                      'tillgänglighet', 'tilgjengelighet', 'pristupnost', 'přístupnost', 'dostupnost',
+                      'dostepnosc', 'prosvasimotita'],
+    'mentions-legales': ['legal-notice', 'legal-notices', 'imprint', 'impressum', 'aviso-legal', 'note-legali',
+                         'wettelijke-vermeldingen', 'juridisk-meddelelse', 'juridiska-meddelanden',
+                         'juridisk-informasjon', 'pravni-upozorneni', 'nota-prawna', 'cgu', 'cgv'],
+}
+ALL_PREFIXES = [''] + LANGS + OLD_LANGS + ['pl']
+_ROOT_LANG = {'our-restaurants': 'en', 'book-a-table': 'en', 'address-contact': 'en', 'our-menus': 'en',
+              'nuestros-restaurantes': 'es', 'reservar-una-mesa': 'es', 'direccion-de-contacto': 'es',
+              'dirección-de-contacto': 'es', 'fotografias': 'es', 'fotografías': 'es',
+              'i-nostri-ristoranti': 'it', 'prenotare-un-tavolo': 'it', 'informazioni-contatti': 'it'}
+for _page, _slugs in SLUGS.items():
+    _is_legal = _page in LEGAL
+    for _prefix in ALL_PREFIXES:
+        for _slug in _slugs:
+            _old = '/%s/' % _slug if not _prefix else '/%s/%s/' % (_prefix, _slug)
+            if _old in REDIRECTS:
+                continue
+            _lang = _prefix if _prefix in LANGS else ('en' if _prefix and _prefix != 'fr' else _ROOT_LANG.get(_slug, ''))
+            if _is_legal:
+                _new = '/%s/' % _page
+            else:
+                _base = '/%s' % _lang if _lang else ''
+                _new = '%s/' % _base if _page == 'home' else '%s/%s/' % (_base, _page)
+            REDIRECTS[_old] = _new
 # pages légales traduites par Zenchef : la version française seule existe désormais
 for l in LANGS:
     for p in LEGAL:
@@ -163,7 +231,7 @@ def redirects():
     for old, new in REDIRECTS.items():
         f = os.path.join(ROOT, old.strip('/'), 'index.html')
         if os.path.exists(f) and 'http-equiv="refresh"' not in open(f, encoding='utf-8').read():
-            raise SystemExit('refus : %s est une vraie page, pas une ancienne adresse' % old)
+            continue  # vraie page du site : on n'y touche pas
         target = SITE + new
         assert os.path.exists(os.path.join(ROOT, new.strip('/'), 'index.html')), new
         write(f, STUB.format(url=target))
