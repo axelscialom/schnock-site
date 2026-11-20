@@ -189,7 +189,7 @@ def transform(s):
     # our own small additions
     s = s.replace('<link rel="stylesheet" href="/css/css_11/314f6c/_default_/_default_/main.css" media="print" onload="this.media=\'all\'">',
                   '<link rel="stylesheet" href="/css/css_11/314f6c/_default_/_default_/main.css" media="print" onload="this.media=\'all\'">\n\t<link rel="stylesheet" href="/css/site.css">', 1)
-    s = sub1(r'(<script src="/js/globals/script\.js"></script>)', r'<script src="/js/site.js"></script>\n\1', s, count=1)
+    s = sub1(r'(<script src="/js/globals/script\.js"></script>)', r'<script src="/js/site.js?v=20261120"></script>\n\1', s, count=1)
     s = sub1(r'(<div class="footer__btns">.*?Réserver\s*</a>)',
              r'\1' + '\n\t\t\t\t\t<a class="btn btn--std btn--small btn--privatisation" href="/privatisation/">Privatiser</a>', s, count=1)
     # "À emporter" entry after "Formule déjeuner" in the header and burger "Cartes & Menus" dropdowns
@@ -442,7 +442,7 @@ def build_privatisation(contact_html):
     s = set_head(s, 'privatisation')
     s = sub1(r'<meta property="og:image" content="[^"]*" />', lambda m: '<meta property="og:image" content="%simages/privatisation-schnock-grande-table.jpg" />' % SITE, s, count=1)
     s = s.replace('</head>', ld_script(faq_ld) + '\n</head>', 1)
-    s = sub1(r'(<script src="/js/site\.js"></script>)', r'\1\n<script src="/js/privatisation.js"></script>', s, count=1)
+    s = sub1(r'(<script src="/js/site\.js[^"]*"></script>)', r'\1\n<script src="/js/privatisation.js?v=20261120"></script>', s, count=1)
     write(os.path.join(OUT, 'privatisation', 'index.html'), s)
     shutil.copy(os.path.join(S, 'src/privatisation.js'), os.path.join(OUT, 'js/privatisation.js'))
 
