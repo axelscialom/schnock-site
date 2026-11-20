@@ -6,12 +6,12 @@ var SCHNOCK_FORM_ENDPOINT = 'https://formsubmit.co/ajax/bd66bd1e31e4cf72497d86a9
 //-- Messages in the page language (the site exists in fr, en, es, it, zh, ja)
 var SCHNOCK_LANG = (document.documentElement.lang || 'fr').slice(0, 2)
 var SCHNOCK_TEXTS = {
-	fr: { required: 'Ce champ est obligatoire.', email: 'Veuillez saisir un email valide.', min: 'Veuillez saisir une valeur supérieure ou égale à {0}.', max: 'Veuillez saisir une valeur inférieure ou égale à {0}.', failed: "L'envoi n'a pas fonctionné. Appelez-nous au 01 47 64 86 04." },
-	en: { required: 'This field is required.', email: 'Please enter a valid email address.', min: 'Please enter a value of at least {0}.', max: 'Please enter a value no greater than {0}.', failed: 'Your message could not be sent. Please call us on +33 1 47 64 86 04.' },
-	es: { required: 'Este campo es obligatorio.', email: 'Introduzca un correo electrónico válido.', min: 'Introduzca un valor igual o superior a {0}.', max: 'Introduzca un valor igual o inferior a {0}.', failed: 'No se pudo enviar. Llámenos al +33 1 47 64 86 04.' },
-	it: { required: 'Questo campo è obbligatorio.', email: 'Inserite un indirizzo email valido.', min: 'Inserite un valore pari o superiore a {0}.', max: 'Inserite un valore pari o inferiore a {0}.', failed: "L'invio non è riuscito. Chiamateci al +33 1 47 64 86 04." },
-	zh: { required: '此项为必填项。', email: '请输入有效的电子邮箱。', min: '请输入不小于 {0} 的数值。', max: '请输入不大于 {0} 的数值。', failed: '发送失败，请致电 +33 1 47 64 86 04。' },
-	ja: { required: 'この項目は必須です。', email: '有効なメールアドレスを入力してください。', min: '{0} 以上の値を入力してください。', max: '{0} 以下の値を入力してください。', failed: '送信できませんでした。お電話（+33 1 47 64 86 04）でご連絡ください。' },
+	fr: { sending: 'Envoi en cours…', required: 'Ce champ est obligatoire.', email: 'Veuillez saisir un email valide.', min: 'Veuillez saisir une valeur supérieure ou égale à {0}.', max: 'Veuillez saisir une valeur inférieure ou égale à {0}.', failed: "L'envoi n'a pas fonctionné. Envoyez-nous votre demande par email ou appelez-nous :" },
+	en: { sending: 'Sending…', required: 'This field is required.', email: 'Please enter a valid email address.', min: 'Please enter a value of at least {0}.', max: 'Please enter a value no greater than {0}.', failed: 'Your message could not be sent. Please email or call us:' },
+	es: { sending: 'Enviando…', required: 'Este campo es obligatorio.', email: 'Introduzca un correo electrónico válido.', min: 'Introduzca un valor igual o superior a {0}.', max: 'Introduzca un valor igual o inferior a {0}.', failed: 'No se pudo enviar. Escríbanos o llámenos:' },
+	it: { sending: 'Invio in corso…', required: 'Questo campo è obbligatorio.', email: 'Inserite un indirizzo email valido.', min: 'Inserite un valore pari o superiore a {0}.', max: 'Inserite un valore pari o inferiore a {0}.', failed: "L'invio non è riuscito. Scriveteci o chiamateci:" },
+	zh: { sending: '正在发送…', required: '此项为必填项。', email: '请输入有效的电子邮箱。', min: '请输入不小于 {0} 的数值。', max: '请输入不大于 {0} 的数值。', failed: '发送失败，请发邮件或致电：' },
+	ja: { sending: '送信中…', required: 'この項目は必須です。', email: '有効なメールアドレスを入力してください。', min: '{0} 以上の値を入力してください。', max: '{0} 以下の値を入力してください。', failed: '送信できませんでした。メールまたはお電話でご連絡ください：' },
 }
 var SCHNOCK_TEXT = SCHNOCK_TEXTS[SCHNOCK_LANG] || SCHNOCK_TEXTS.fr
 if (window.jQuery && $.validator) {
@@ -21,6 +21,22 @@ if (window.jQuery && $.validator) {
 		min: $.validator.format(SCHNOCK_TEXT.min),
 		max: $.validator.format(SCHNOCK_TEXT.max),
 	})
+}
+
+// Shown under the form when FormSubmit fails: the visitor can still send the same request by email
+function schnockShowFallback(form, data) {
+	var to = 'schnock.resto' + '@' + 'gmail.com'
+	var lines = []
+	Object.keys(data).forEach(function (k) {
+		if (k.charAt(0) !== '_' && data[k]) lines.push(k + ' : ' + data[k])
+	})
+	var href = 'mailto:' + to + '?subject=' + encodeURIComponent(data._subject) + '&body=' + encodeURIComponent(lines.join('\n'))
+	var $box = $(form).find('.schnock-fallback')
+	if (!$box.length) $box = $('<div class="schnock-fallback" role="alert" style="margin:16px 0;padding:14px 16px;background:#fff;color:#1d2b3a;border-radius:6px;line-height:1.5"></div>').appendTo(form)
+	$box.html('')
+		.append($('<p style="margin:0 0 10px;color:#1d2b3a"></p>').text(SCHNOCK_TEXT.failed))
+		.append($('<a class="btn btn--std" style="margin:0 8px 8px 0;display:inline-block"></a>').attr('href', href).text('✉ ' + to))
+		.append($('<a class="btn btn--std" style="margin:0 0 8px;display:inline-block" href="tel:+33147648604"></a>').text('☎ 01 47 64 86 04'))
 }
 
 function schnockSendForm(form, subject, done) {
@@ -35,24 +51,31 @@ function schnockSendForm(form, subject, done) {
 		done()
 		return
 	}
+	// Show that something is happening (FormSubmit can take a few seconds) and block double clicks
+	var $btn = $(form).find('[type=submit]')
+	var label = $btn.val()
+	if ($btn.prop('disabled')) return
+	$btn.prop('disabled', true).val(SCHNOCK_TEXT.sending || '…')
+	var fail = function () {
+		$btn.prop('disabled', false).val(label)
+		schnockShowFallback(form, data)
+	}
 	$.ajax({
 		url: SCHNOCK_FORM_ENDPOINT,
 		method: 'POST',
 		data: data,
 		dataType: 'json',
+		timeout: 20000,
 		headers: { Accept: 'application/json' },
 	})
 		.done(function (res) {
-			// FormSubmit answers 200 even when it refuses (e.g. form not activated yet): check the flag
-			if (res && String(res.success) === 'false') {
-				alert(SCHNOCK_TEXT.failed)
-				return
-			}
+			// FormSubmit answers 200 even when it refuses: check the flag
+			if (res && String(res.success) === 'false') return fail()
+			$btn.prop('disabled', false).val(label)
+			$(form).find('.schnock-fallback').remove()
 			done(res)
 		})
-		.fail(function () {
-			alert(SCHNOCK_TEXT.failed)
-		})
+		.fail(fail)
 }
 
 //-- Slow zoom on the hero photo (the photo moves to its own layer so only it scales)
