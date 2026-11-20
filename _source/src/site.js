@@ -6,12 +6,12 @@ var SCHNOCK_FORM_ENDPOINT = 'https://formsubmit.co/ajax/bd66bd1e31e4cf72497d86a9
 //-- Messages in the page language (the site exists in fr, en, es, it, zh, ja)
 var SCHNOCK_LANG = (document.documentElement.lang || 'fr').slice(0, 2)
 var SCHNOCK_TEXTS = {
-	fr: { sending: 'Envoi en cours…', required: 'Ce champ est obligatoire.', email: 'Veuillez saisir un email valide.', min: 'Veuillez saisir une valeur supérieure ou égale à {0}.', max: 'Veuillez saisir une valeur inférieure ou égale à {0}.', failed: "L'envoi n'a pas fonctionné. Envoyez-nous votre demande par email ou appelez-nous :" },
-	en: { sending: 'Sending…', required: 'This field is required.', email: 'Please enter a valid email address.', min: 'Please enter a value of at least {0}.', max: 'Please enter a value no greater than {0}.', failed: 'Your message could not be sent. Please email or call us:' },
-	es: { sending: 'Enviando…', required: 'Este campo es obligatorio.', email: 'Introduzca un correo electrónico válido.', min: 'Introduzca un valor igual o superior a {0}.', max: 'Introduzca un valor igual o inferior a {0}.', failed: 'No se pudo enviar. Escríbanos o llámenos:' },
-	it: { sending: 'Invio in corso…', required: 'Questo campo è obbligatorio.', email: 'Inserite un indirizzo email valido.', min: 'Inserite un valore pari o superiore a {0}.', max: 'Inserite un valore pari o inferiore a {0}.', failed: "L'invio non è riuscito. Scriveteci o chiamateci:" },
-	zh: { sending: '正在发送…', required: '此项为必填项。', email: '请输入有效的电子邮箱。', min: '请输入不小于 {0} 的数值。', max: '请输入不大于 {0} 的数值。', failed: '发送失败，请发邮件或致电：' },
-	ja: { sending: '送信中…', required: 'この項目は必須です。', email: '有効なメールアドレスを入力してください。', min: '{0} 以上の値を入力してください。', max: '{0} 以下の値を入力してください。', failed: '送信できませんでした。メールまたはお電話でご連絡ください：' },
+	fr: { invalid: 'Votre demande n\'est pas partie : corrigez les champs signalés en rouge', sending: 'Envoi en cours…', required: 'Ce champ est obligatoire.', email: 'Veuillez saisir un email valide.', min: 'Veuillez saisir une valeur supérieure ou égale à {0}.', max: 'Veuillez saisir une valeur inférieure ou égale à {0}.', failed: "L'envoi n'a pas fonctionné. Envoyez-nous votre demande par email ou appelez-nous :" },
+	en: { invalid: 'Your request was not sent: please fix the fields marked in red', sending: 'Sending…', required: 'This field is required.', email: 'Please enter a valid email address.', min: 'Please enter a value of at least {0}.', max: 'Please enter a value no greater than {0}.', failed: 'Your message could not be sent. Please email or call us:' },
+	es: { invalid: 'Su solicitud no se ha enviado: corrija los campos marcados en rojo', sending: 'Enviando…', required: 'Este campo es obligatorio.', email: 'Introduzca un correo electrónico válido.', min: 'Introduzca un valor igual o superior a {0}.', max: 'Introduzca un valor igual o inferior a {0}.', failed: 'No se pudo enviar. Escríbanos o llámenos:' },
+	it: { invalid: 'La richiesta non è partita: correggete i campi segnalati in rosso', sending: 'Invio in corso…', required: 'Questo campo è obbligatorio.', email: 'Inserite un indirizzo email valido.', min: 'Inserite un valore pari o superiore a {0}.', max: 'Inserite un valore pari o inferiore a {0}.', failed: "L'invio non è riuscito. Scriveteci o chiamateci:" },
+	zh: { invalid: '请求未发送：请修改标红的字段', sending: '正在发送…', required: '此项为必填项。', email: '请输入有效的电子邮箱。', min: '请输入不小于 {0} 的数值。', max: '请输入不大于 {0} 的数值。', failed: '发送失败，请发邮件或致电：' },
+	ja: { invalid: '送信されていません：赤で示された項目を修正してください', sending: '送信中…', required: 'この項目は必須です。', email: '有効なメールアドレスを入力してください。', min: '{0} 以上の値を入力してください。', max: '{0} 以下の値を入力してください。', failed: '送信できませんでした。メールまたはお電話でご連絡ください：' },
 }
 var SCHNOCK_TEXT = SCHNOCK_TEXTS[SCHNOCK_LANG] || SCHNOCK_TEXTS.fr
 if (window.jQuery && $.validator) {
