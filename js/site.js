@@ -2,6 +2,8 @@
 // The hashed key FormSubmit gave for schnock.resto@gmail.com: it hides the address from spam bots
 // and stops the repeated activation emails. Left empty, forms only show the thank-you message.
 var SCHNOCK_FORM_ENDPOINT = 'https://formsubmit.co/ajax/bd66bd1e31e4cf72497d86a96694b581'
+// Web3Forms access key (sent by web3forms.com to schnock.resto@gmail.com). When set, it replaces FormSubmit.
+var SCHNOCK_WEB3FORMS_KEY = ''
 
 //-- Messages in the page language (the site exists in fr, en, es, it, zh, ja)
 var SCHNOCK_LANG = (document.documentElement.lang || 'fr').slice(0, 2)
@@ -60,16 +62,23 @@ function schnockSendForm(form, subject, done) {
 		$btn.prop('disabled', false).val(label)
 		schnockShowFallback(form, data)
 	}
-	$.ajax({
-		url: SCHNOCK_FORM_ENDPOINT,
-		method: 'POST',
-		data: data,
-		dataType: 'json',
-		timeout: 20000,
-		headers: { Accept: 'application/json' },
-	})
+	var request = SCHNOCK_WEB3FORMS_KEY
+		? {
+				url: 'https://api.web3forms.com/submit',
+				method: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify($.extend({}, data, { access_key: SCHNOCK_WEB3FORMS_KEY, subject: data._subject, from_name: 'Site Schnock', replyto: data.email })),
+			}
+		: { url: SCHNOCK_FORM_ENDPOINT, method: 'POST', data: data }
+	$.ajax(
+		$.extend(request, {
+			dataType: 'json',
+			timeout: 12000,
+			headers: { Accept: 'application/json' },
+		})
+	)
 		.done(function (res) {
-			// FormSubmit answers 200 even when it refuses: check the flag
+			// Both services can answer 200 while refusing: check the flag
 			if (res && String(res.success) === 'false') return fail()
 			$btn.prop('disabled', false).val(label)
 			$(form).find('.schnock-fallback').remove()
