@@ -1,5 +1,5 @@
 {
-  "_source": "Menu_Schnock.docx envoyé par axel le 12/11/2026 (retours du 13 novembre)",
+  "_source": "Menu_Schnock_modifie.docx envoyé par axel le 22/11/2026",
   "carte": [
     {
       "title": "Entrées",
@@ -15,9 +15,9 @@
           "11,00"
         ],
         [
-          "Tartare de saumon",
-          "Mangue, gingembre",
-          "14,00"
+          "Carpaccio de Saint-Jacques",
+          "Huile d’olive, citron",
+          "17,00"
         ],
         [
           "Beignets de courgette",
@@ -30,8 +30,8 @@
           "19,00"
         ],
         [
-          "Œufs meurette",
-          "Lardons & Croûtons",
+          "Œufs en Meurette",
+          "Lardons, champignons et croûtons",
           "12,00"
         ],
         [
@@ -40,7 +40,7 @@
           "15,00"
         ],
         [
-          "Poêlée de girolles et shitakes",
+          "Poêlée de girolles et shiitakés",
           "Ail, persil",
           "17,00"
         ],
@@ -52,27 +52,17 @@
       ]
     },
     {
-      "title": "Salades",
-      "dishes": [
-        [
-          "Caesar salade",
-          "",
-          "19,00"
-        ],
-        [
-          "Black Tiger salade",
-          "Crevettes XXL, avocat, Granny Smith, pamplemousse, roquette",
-          "24,00"
-        ]
-      ]
-    },
-    {
       "title": "Plats",
       "dishes": [
         [
           "Gnocchi à la crème truffée",
           "",
           "22,00"
+        ],
+        [
+          "Fish and chips maison",
+          "Sauce tartare",
+          "19,00"
         ],
         [
           "Maquereau entier en portefeuille",
@@ -86,8 +76,13 @@
         ],
         [
           "Grand tartare de saumon",
-          "Mangue, gingembre, patate douce",
+          "Mangue, gingembre, pommes allumettes",
           "27,00"
+        ],
+        [
+          "Noix de Saint-Jacques rôties",
+          "Poêlée de girolles et shiitakés",
+          "33,00"
         ],
         [
           "Paleron de bœuf à la cuillère",
